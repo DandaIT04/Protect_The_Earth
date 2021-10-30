@@ -12,8 +12,8 @@ function startGame() {
 var myGameArea = {
     canvas: document.createElement("canvas"),
     start: function () {
-        this.canvas.width = 800;
-        this.canvas.height = 600;
+        this.canvas.width = 500;
+        this.canvas.height = 400;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[2]);
         this.frameNo = 0;
@@ -95,11 +95,30 @@ function updateGameArea() {
         minHeight = 20;
         maxHeight = 200;
         height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
-        minGap = 50;
+        minGap = 60;
         maxGap = 200;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-        myObstacles.push(new component(10, height, "green", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+        result = Math.floor((Math.random() * 3) + 1);
+        if (result == 1) {
+            // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
+            myObstacles.push(new component(60, height, "https://localhost:44302/images/nestle.png", x, 0, "image"));
+            // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
+            myObstacles.push(new component(60, x - height - gap, "https://localhost:44302/images/nestle.png", x, height + gap, "image"));
+        }
+
+        else if (result == 2) {
+            // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
+            myObstacles.push(new component(60, height, "https://localhost:44302/images/cola.png", x, 0, "image"));
+            // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
+            myObstacles.push(new component(60, x - height - gap, "https://localhost:44302/images/cola.png", x, height + gap, "image"));
+        }
+
+        else if (result == 3) {
+            // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
+            myObstacles.push(new component(60, height, "https://localhost:44302/images/pepsi.png", x, 0, "image"));
+            // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
+            myObstacles.push(new component(60, x - height - gap, "https://localhost:44302/images/pepsi.png", x, height + gap, "image"));
+        }
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -1;

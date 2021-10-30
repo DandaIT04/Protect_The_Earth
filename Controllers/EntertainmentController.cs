@@ -13,7 +13,7 @@ namespace PFD_SaveTheEnvironment.Controllers
             return View();
         }
 
-        public IActionResult Games()
+        public IActionResult FlappyEarth()
         {
             return View();
         }
