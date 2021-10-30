@@ -17,5 +17,10 @@ namespace PFD_SaveTheEnvironment.Controllers
         {
             return View();
         }
+
+        public IActionResult dinoGame()
+        {
+            return View();
+        }
     }
 }

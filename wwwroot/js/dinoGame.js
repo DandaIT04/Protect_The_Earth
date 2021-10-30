@@ -3,8 +3,8 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120,"image");
-    myGamePiece.gravity = 0.05;
+    myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
+    myGamePiece.gravity = 1;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
@@ -17,7 +17,7 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[2]);
         this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 20);
+        this.interval = setInterval(updateGameArea, 1);
     },
     clear: function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -92,36 +92,36 @@ function updateGameArea() {
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyinterval(150)) {
         x = myGameArea.canvas.width;
-        minHeight = 20;
-        maxHeight = 200;
+        minHeight = 280;
+        maxHeight = 300;
         height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
-        minGap = 60;
-        maxGap = 200;
+        minGap = 170;
+        maxGap = 180;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
         result = Math.floor((Math.random() * 3) + 1);
         if (result == 1) {
             // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
-            myObstacles.push(new component(60, height, "https://localhost:44302/images/nestle.png", x, 0, "image"));
+            myObstacles.push(new component(70, 80, "https://localhost:44302/images/nestle.png", x, 330, "image"));
             // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
-            myObstacles.push(new component(60, x - height - gap, "https://localhost:44302/images/nestle.png", x, height + gap, "image"));
+            myObstacles.push(new component(70, x - 80 - gap, "https://localhost:44302/images/nestle.png", x, height + gap, "image"));
         }
 
         else if (result == 2) {
             // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
-            myObstacles.push(new component(80, height, "https://localhost:44302/images/cola.png", x, 0, "image"));
+            myObstacles.push(new component(70, 80, "https://localhost:44302/images/cola.png", x, 330, "image"));
             // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
-            myObstacles.push(new component(80, x - height - gap, "https://localhost:44302/images/cola.png", x, height + gap, "image"));
+            myObstacles.push(new component(70, x - 80 - gap, "https://localhost:44302/images/cola.png", x, height + gap, "image"));
         }
 
         else if (result == 3) {
             // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
-            myObstacles.push(new component(60, height, "https://localhost:44302/images/pepsi.png", x, 0, "image"));
+            myObstacles.push(new component(70, 80, "https://localhost:44302/images/pepsi.png", x, 330, "image"));
             // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
-            myObstacles.push(new component(60, x - height - gap, "https://localhost:44302/images/pepsi.png", x, height + gap, "image"));
+            myObstacles.push(new component(70, x - 80 - gap, "https://localhost:44302/images/pepsi.png", x, height + gap, "image"));
         }
     }
     for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
+        myObstacles[i].x += -2;
         myObstacles[i].update();
     }
     myScore.text = "SCORE: " + myGameArea.frameNo;
