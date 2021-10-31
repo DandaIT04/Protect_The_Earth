@@ -37,7 +37,7 @@ namespace PFD_SaveTheEnvironment.Models
         public string Password { get; set; }
 
         //Score
-        public int Score { get; set; }
+        public int? Score { get; set; }
 
     }
 }
