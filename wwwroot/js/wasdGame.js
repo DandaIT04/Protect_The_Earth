@@ -85,6 +85,8 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            location.reload();
+            window.alert("You lose! The earth is destroyed!");
             return;
         }
     }
@@ -138,3 +140,15 @@ function everyinterval(n) {
 function accelerate(n) {
     myGamePiece.gravity = n;
 }
+
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+        myGamePiece.gravity = 0.15;
+    }
+})
+
+document.addEventListener('keydown', event => {
+    if (event.code === 'Space') {
+        myGamePiece.gravity = -0.15;
+    }
+})
