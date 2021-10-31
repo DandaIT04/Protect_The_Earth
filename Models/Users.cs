@@ -25,6 +25,7 @@ namespace PFD_SaveTheEnvironment.Models
         [Required(ErrorMessage = "Email Address Required!")]
         [Display(Name = "Email Address")]
         [EmailAddress]
+        [ValidateUserExists]
         [StringLength(50, ErrorMessage = "Email length cannot be more than 50 characters!")]
         public string EmailAddr { get; set; }
 
@@ -33,7 +34,7 @@ namespace PFD_SaveTheEnvironment.Models
         [Required(ErrorMessage = "Password Required!")]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [StringLength(255, ErrorMessage = "Password must be atleast 6 characters long!", MinimumLength = 6)]
+        [StringLength(255, ErrorMessage = "Password must be at least 5 characters long!", MinimumLength = 5)]
         public string Password { get; set; }
 
         //Score

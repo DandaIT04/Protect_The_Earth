@@ -30,7 +30,7 @@ namespace PFD_SaveTheEnvironment.Controllers
             {
                 user.UserID = userContext.Add(user);
                 TempData["Success"] = "User Creation Successful!";
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("LoginPage", "Home");
             }
             else
             {
