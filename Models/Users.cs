@@ -43,5 +43,8 @@ namespace PFD_SaveTheEnvironment.Models
         //Badges
         public int Badges { get; set; }
 
+        //DateCreated
+        public DateTime DateCreated { get; set; }
+
     }
 }

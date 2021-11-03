@@ -82,14 +82,15 @@ namespace PFD_SaveTheEnvironment.DAL
         {
             SqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, Score, Badges)
+            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, Score, Badges, DateCreated)
                                 OUTPUT INSERTED.UserID
-                                VALUES(@name, @salutation, @email, @password, '0', '0')";
+                                VALUES(@name, @salutation, @email, @password, '0', '0', @date)";
 
             cmd.Parameters.AddWithValue("@name", user.UserName);
             cmd.Parameters.AddWithValue("@salutation", user.Salutation);
             cmd.Parameters.AddWithValue("@email", user.EmailAddr);
             cmd.Parameters.AddWithValue("@password", user.Password);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
 
             conn.Open();
             user.UserID = (int)cmd.ExecuteScalar();
