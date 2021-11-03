@@ -38,10 +38,10 @@ namespace PFD_SaveTheEnvironment.Models
         public string Password { get; set; }
 
         //Score
-        public int Score { get; set; }
+        public string Score { get; set; }
 
         //Badges
-        public int Badges { get; set; }
+        public string Badges { get; set; }
 
         //DateCreated
         public DateTime DateCreated { get; set; }

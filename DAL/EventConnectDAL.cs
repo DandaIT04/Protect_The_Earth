@@ -46,12 +46,13 @@ namespace PFD_SaveTheEnvironment.DAL
                 new EventConnect
                 {
                     EventID = reader.GetInt32(0), //0: 1st column
-                    EventName = reader.GetString(1),
-                    EventLocation = reader.GetString(2),
-                    StartDate = !reader.IsDBNull(3) ?
-                    reader.GetDateTime(3) : (DateTime?)null,
-                    EndDate = !reader.IsDBNull(4) ?
+                    UserID = reader.GetInt32(1), //0: 1st column
+                    EventName = reader.GetString(2),
+                    EventLocation = reader.GetString(3),
+                    StartDate = !reader.IsDBNull(4) ?
                     reader.GetDateTime(4) : (DateTime?)null,
+                    EndDate = !reader.IsDBNull(5) ?
+                    reader.GetDateTime(5) : (DateTime?)null,
                 }
                 );
             }
@@ -68,12 +69,16 @@ namespace PFD_SaveTheEnvironment.DAL
             SqlCommand cmd = conn.CreateCommand();
             //Specify an INSERT SQL statement which will
 
-            cmd.CommandText = @"INSERT INTO EventConnect (EventName)
+            cmd.CommandText = @"INSERT INTO EventConnect (UserID,EventName,EventLocation,StartDate,EndDate)
                                 OUTPUT INSERTED.EventID
-                                VALUES(@EventName)";
+                                VALUES(@userID,@eventName,@eventLocation,@startDate,@endDate)";
             //Define the parameters used in SQL statement, value for each parameter
             //is retrieved from respective class's property.
-            cmd.Parameters.AddWithValue("@EventName", events.EventName);
+            cmd.Parameters.AddWithValue("@userID", events.UserID);
+            cmd.Parameters.AddWithValue("@eventName", events.EventName);
+            cmd.Parameters.AddWithValue("@eventLocation", events.EventLocation);
+            cmd.Parameters.AddWithValue("@startDate", events.StartDate);
+            cmd.Parameters.AddWithValue("@endDate", events.EndDate);
             //A connection to database must be opened before any operations made.
             conn.Open();
             //ExecuteScalar is used to retrieve the auto-generated

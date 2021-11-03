@@ -9,6 +9,7 @@ namespace PFD_SaveTheEnvironment.Models
     public class EventConnect
     {
         public int EventID { get; set; }
+        public int UserID { get; set; }
 
         //EventName
         [Required]
