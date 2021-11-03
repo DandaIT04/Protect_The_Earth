@@ -98,5 +98,61 @@ namespace PFD_SaveTheEnvironment.DAL
 
             return user.UserID;
         }
+        public int GetUserID(string email)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = @"SELECT UserID FROM Users WHERE EmailAddr = @email";
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            int userID = 0;
+            while (reader.Read())
+            {
+                userID = reader.GetInt32(0);
+            }
+            //Close DataReader
+            reader.Close();
+            //Close the database connection
+            conn.Close();
+
+            return userID;
+        }
+        public Users GetDetails(int UserId)
+        {
+            Users user = new Users();
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = @"SELECT * FROM Users                       
+                                WHERE UserID = @selectedUserID";
+
+            cmd.Parameters.AddWithValue("@selectedUserID", UserId);
+
+            conn.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    user.UserID = UserId;
+                    user.UserName = !reader.IsDBNull(1) ? reader.GetString(1) : null;
+                    user.Salutation = !reader.IsDBNull(2) ? reader.GetString(2) : null;
+                    user.EmailAddr = !reader.IsDBNull(3) ? reader.GetString(3) : null;
+                    user.Password = !reader.IsDBNull(4) ? reader.GetString(4) : null;
+                    user.Score = reader.GetInt32(5);
+                    user.Badges = reader.GetInt32(6);
+                    user.DateCreated = reader.GetDateTime(7);
+                }
+            }
+            reader.Close();
+            conn.Close();
+
+            return user;
+        }
     }
 }

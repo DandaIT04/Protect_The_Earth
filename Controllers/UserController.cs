@@ -34,8 +34,6 @@ namespace PFD_SaveTheEnvironment.Controllers
             }
             else
             {
-                //Input validation fails, return to the Create view
-                //to display error message
                 return View(user);
             }
         }
@@ -65,6 +63,19 @@ namespace PFD_SaveTheEnvironment.Controllers
             });
 
             return sal;
+        }
+        public ActionResult Details(int userID)
+        {
+            // Stop accessing the action if not logged in
+            // or account not in the "User" role
+            if ((HttpContext.Session.GetString("Role") == null) ||
+            (HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            Users user = userContext.GetDetails(userID);
+            return View(user);
         }
     }
 }

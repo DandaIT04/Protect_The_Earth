@@ -43,28 +43,30 @@ namespace PFD_SaveTheEnvironment.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            string userID = FormData["txtLoginID"].ToString();
+            string email = FormData["txtLoginID"].ToString();
             string password = FormData["txtPassword"].ToString();
             DateTime DateTiming = DateTime.Now;
 
-            if (userContext.ValidUserLogin(userID, password) == true)
+            if (userContext.ValidUserLogin(email, password) == true)
             {
                 string Role = "User";
-                // Store Login ID in session with the key "LoginID"
-                HttpContext.Session.SetString("LoginID", userID);
-                // Store user role "Judge" as a string in session with the key "Role"
                 HttpContext.Session.SetString("Role", Role);
-                // Store date and time of the user when it has logged in
-                HttpContext.Session.SetString("DateTiming", DateTiming.ToString());
+                string userID = Convert.ToString(userContext.GetUserID(email));
+                HttpContext.Session.SetString("LoginID", userID);
+                HttpContext.Session.SetString("LogInTime", DateTiming.ToString());
 
                 return RedirectToAction("Index");
             }
             else
             {
-                // Store an error message to TempData for display at the index view
                 TempData["Message"] = "Invalid Login Credentials";
                 return RedirectToAction("Login");
             }
+        }
+        public ActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
         }
     }
 }
