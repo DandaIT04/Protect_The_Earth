@@ -16,5 +16,25 @@ namespace PFD_SaveTheEnvironment.Controllers
         {
             return View();
         }
+
+        public IActionResult Cars()
+        {
+            return View();
+        }
+
+        public IActionResult Electronics()
+        {
+            return View();
+        }
+
+        public IActionResult Fashion()
+        {
+            return View();
+        }
+
+        public IActionResult FoodandBeverages()
+        {
+            return View();
+        }
     }
 }
