@@ -9,7 +9,20 @@
 </head>
 <body>
     <header>
-        @await Html.PartialAsync("_PublicMain.cshtml")
+        @{
+            string userRole = Context.Session.GetString("Role");
+            if (userRole != null)
+            {
+                if (userRole == "User")
+                {
+                    @await Html.PartialAsync("_UserNavbar.cshtml")
+                }
+            }
+            else
+            {
+                @await Html.PartialAsync("_PublicNavbar.cshtml")
+            }
+        }
     </header>
     <div class="container">
         <main role="main" class="pb-3">

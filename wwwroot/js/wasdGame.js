@@ -5,7 +5,7 @@ var myScore;
 function startGame() {
     myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120,"image");
     myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myScore = new component("30px", "Consolas", "black", 170, 80, "text");
     myGameArea.start();
 }
 
@@ -41,12 +41,20 @@ function component(width, height, color, x, y, type) {
     this.gravitySpeed = 0;
     this.update = function () {
         ctx = myGameArea.context;
-        if (type == "image") {
+        if (this.type == "image") {
             ctx.drawImage(this.image,
                 this.x,
                 this.y,
                 this.width, this.height);
-        } else {
+        }
+
+        else if (this.type == "text")
+        {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        }
+        else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
