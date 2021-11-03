@@ -14,6 +14,16 @@ if exists (select * from sysobjects
   drop table dbo.Users
 GO
 
+if exists (select * from sysobjects 
+  where id = object_id('dbo.EventConnect') and sysstat & 0xf = 3)
+  drop table dbo.EventConnect
+GO
+
+if exists (select * from sysobjects 
+  where id = object_id('dbo.EventUsers') and sysstat & 0xf = 3)
+  drop table dbo.EventUsers
+GO
+
 /***************************************************************/
 /***                     Creating tables                     ***/
 /***************************************************************/
@@ -34,6 +44,45 @@ CREATE TABLE dbo.Users
 )
 GO
 
+CREATE TABLE dbo.EventConnect
+(
+  EventID 			int IDENTITY (1,1),
+  EventName		varchar(100) 	NOT NULL,
+  EventLocation		varchar(100) 	NOT NULL,
+  StartDate datetime NULL,
+  EndDate datetime NULL,
+  CONSTRAINT PK_EventConnect PRIMARY KEY NONCLUSTERED (EventID)
+)
+GO
+
+DROP TABLE EventUsers
+/****** Object:  Table [dbo].[EventUsers]    Script Date: 3/11/2021 1:31:44 pm ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EventUsers](
+	[EventID] [int] NOT NULL,
+	[UserID] [int] NOT NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[EventUsers]  WITH CHECK ADD  CONSTRAINT [FK_EventUsers_EventID] FOREIGN KEY([EventID])
+REFERENCES [dbo].[EventConnect] ([EventID])
+GO
+
+ALTER TABLE [dbo].[EventUsers] CHECK CONSTRAINT [FK_EventUsers_EventID]
+GO
+
+ALTER TABLE [dbo].[EventUsers]  WITH CHECK ADD  CONSTRAINT [FK_EventUsers_UserID] FOREIGN KEY([UserID])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+
+ALTER TABLE [dbo].[EventUsers] CHECK CONSTRAINT [FK_EventUsers_UserID]
+GO
+
 /***************************************************************/
 /***                Populate Sample Data                     ***/
 /***************************************************************/
@@ -47,3 +96,9 @@ VALUES (2, 'Casca Susan', 'Mrs', 'cs1@gmail.com', 'password123', 100, 3, '2020-1
 INSERT [dbo].[Users] ([UserID], [UserName], [Salutation], [EmailAddr], [Password], [Score], [Badges], [DateCreated])  
 VALUES (3, 'Gon Yeager', 'Dr', 'gy1@hotmail.com', 'password123', 999, 2, '2020-01-02')
 SET IDENTITY_INSERT [dbo].[Users] OFF
+
+/* Table: dbo.EventConnect */
+SET IDENTITY_INSERT [dbo].[EventConnect] ON 
+INSERT [dbo].[EventConnect] ([EventID], [EventName], [EventLocation], [StartDate], [EndDate]) 
+VALUES (1, 'Caligraphy', 'Chua Chu Kang Somewhere','2021-11-04 12:15:00.000','2021-11-04 15:15:00.000')
+SET IDENTITY_INSERT [dbo].[EventConnect] OFF 

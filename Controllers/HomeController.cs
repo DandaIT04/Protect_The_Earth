@@ -64,7 +64,7 @@ namespace PFD_SaveTheEnvironment.Controllers
                 return RedirectToAction("LoginPage");
             }
         }
-        public ActionResult LogOut()
+        public ActionResult userLogOut()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
