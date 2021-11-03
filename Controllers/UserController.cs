@@ -73,7 +73,7 @@ namespace PFD_SaveTheEnvironment.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            userID = Convert.ToInt32(HttpContext.Session.GetString("LoginID"));
             Users user = userContext.GetDetails(userID);
             return View(user);
         }

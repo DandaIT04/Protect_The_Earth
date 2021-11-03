@@ -53,6 +53,7 @@ namespace PFD_SaveTheEnvironment.Controllers
                 HttpContext.Session.SetString("Role", Role);
                 string userID = Convert.ToString(userContext.GetUserID(email));
                 HttpContext.Session.SetString("LoginID", userID);
+                ViewData["UserID"] = userID.ToString();
                 HttpContext.Session.SetString("LogInTime", DateTiming.ToString());
 
                 return RedirectToAction("Index");
@@ -60,7 +61,7 @@ namespace PFD_SaveTheEnvironment.Controllers
             else
             {
                 TempData["Message"] = "Invalid Login Credentials";
-                return RedirectToAction("Login");
+                return RedirectToAction("LoginPage");
             }
         }
         public ActionResult LogOut()
