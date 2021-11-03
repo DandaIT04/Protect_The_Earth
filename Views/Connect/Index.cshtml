@@ -38,16 +38,20 @@
         <tbody>
             @foreach (var events in Model.eventList)
             {
+                bool foundInEventUsers3 = false;
                 int countEvents = 0;
-                bool foundInEventUsers = false;
+
 
                 @foreach (var eventUsers in Model.eventUsersList)
                 {
+                    string c = Convert.ToString(@TempData["actualUserID"]);
+
                     if (eventUsers.EventID == events.EventID)
                     {
                         countEvents += 1;
                     }
                 }
+
             <tr style="text-align:center; align-content:center; align-items:center;">
                 <td hidden>@events.EventID.ToString()</td>
                 <td hidden>@events.UserID.ToString()</td>
@@ -59,24 +63,25 @@
 
                 @foreach (var users in Model.userList)
                 {
-                    bool notFound = false;
-                    @foreach (var eventUsers in Model.eventUsersList)
+                    string d = Convert.ToString(@TempData["actualUserID"]);
+
+                    if (Convert.ToString(users.UserID) == d)
                     {
-                        if (eventUsers.UserID == users.UserID)
+                        
+
+                        @foreach (var eventUsers2 in Model.eventUsersList)
                         {
-                            notFound = true;
+                            if (Convert.ToString(eventUsers2.UserID) == d && eventUsers2.EventID == events.EventID)
+                            {
+                                foundInEventUsers3 = true;
+                            }
                         }
-                    }
-                    if (notFound == false)
-                    {                     
-                        string a = Convert.ToString(users.UserID);
-                        string b = Convert.ToString(@TempData["actualUserID"]);
-                        if (a == b)
+
+                        if (foundInEventUsers3 == false)
                         {
                             Model.EventID = events.EventID;
                             Model.UserID = users.UserID;
                             <td>
-                                @users.UserName.ToString()
                                 <p>   </p>
 
                                 <form asp-action="Index" style="text-align:center; align-content:center; align-items:center;">
@@ -100,6 +105,7 @@
                             </td>
                         }
                     }
+
                 }
 
 
