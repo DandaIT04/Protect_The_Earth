@@ -82,9 +82,9 @@ namespace PFD_SaveTheEnvironment.DAL
         {
             SqlCommand cmd = conn.CreateCommand();
 
-            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, Score)
+            cmd.CommandText = @"INSERT INTO Users (UserName, Salutation, EmailAddr, Password, Score, Badges)
                                 OUTPUT INSERTED.UserID
-                                VALUES(@name, @salutation, @email, @password, '0')";
+                                VALUES(@name, @salutation, @email, @password, '0', '0')";
 
             cmd.Parameters.AddWithValue("@name", user.UserName);
             cmd.Parameters.AddWithValue("@salutation", user.Salutation);
