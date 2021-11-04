@@ -117,5 +117,86 @@ namespace PFD_SaveTheEnvironment.Controllers
             }
         }
 
+        public ActionResult CreateEventView()
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+(HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View("/Views/Connect/CreateEventView.cshtml");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEvent(EventConnect theEvent)
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+            (HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                TempData["actualUserID"] = HttpContext.Session.GetString("LoginID");
+                string a = Convert.ToString(TempData["actualUserID"]);
+                int b = Convert.ToInt32(a);
+
+                theEvent.UserID = b;
+
+        
+                List<EventConnect> eventList = eventContext.GetAllEvents();
+
+                foreach(EventConnect allTheEvents in eventList)
+                {
+                    if (theEvent.UserID == allTheEvents.UserID &&
+                        theEvent.EventName == allTheEvents.EventName &&
+                        theEvent.EventLocation == allTheEvents.EventLocation &&
+                        theEvent.StartDate == allTheEvents.StartDate &&
+                        theEvent.EndDate == allTheEvents.EndDate ||
+                        theEvent.EventName == allTheEvents.EventName &&
+                        theEvent.EventLocation == allTheEvents.EventLocation &&
+                        theEvent.StartDate == allTheEvents.StartDate &&
+                        theEvent.EndDate == allTheEvents.EndDate)
+                    {
+                        TempData["SimilarEvent"] = "Similar Event Exists!";
+
+                        return RedirectToAction("CreateEventView", "Connect");
+                    }
+                }
+
+                DateTime isRightNow = DateTime.Now;
+
+                if(theEvent.StartDate < isRightNow || theEvent.EndDate < isRightNow)
+                {
+                    TempData["SimilarEvent"] = "Start date/End date cannot be set to before current time!";
+
+                    return RedirectToAction("CreateEventView", "Connect");
+                }
+
+                if(theEvent.StartDate < isRightNow.AddHours(2))
+                {
+                    TempData["SimilarEvent"] = "Event must occur at least more than two hours from now!";
+
+                    return RedirectToAction("CreateEventView", "Connect");
+                }
+
+                //Update record to database
+                eventContext.Add(theEvent);
+                return RedirectToAction("Index", "Connect");
+            }
+
+            else
+            {
+                //Input validation fails, return to the view
+                //to display error message
+
+                return RedirectToAction("CreateEventView", "Connect");
+            }
+
+        }
+
+    }
 }

@@ -1,0 +1,57 @@
+﻿@model PFD_SaveTheEnvironment.Models.EventConnect
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width,
+                                           initial-scale = 1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <br>
+    <h1 class="text-center">Create Event</h1>
+    <br />
+    <h1 class="text-center"><pre><u style="color:red;">@TempData["SimilarEvent"]</u></pre></h1>
+    <br />
+    <div class="row justify-content-center" style="        border-radius: 25px;
+        background: #383B48;
+    ">
+        <div class="col-md-auto justify-content-center">
+            <form asp-action="CreateEvent" style="text-align:center; align-content:center; align-items:center;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <br />
+                    <label asp-for="EventName" class="control-label" style="text-align:center; color:white; font-size:125%;"></label>
+                    <input asp-for="EventName" class="form-control" size="65" maxlength="100" style="text-align:center; font-size:125%;" />
+
+                    <span asp-validation-for="EventName" class="text-danger"></span>
+                    <br />
+                    <label asp-for="EventLocation" class="control-label" style="text-align:center; color:white; font-size:125%;"></label>
+                    <input asp-for="EventLocation" class="form-control" size="65" maxlength="100" style="text-align:center; font-size:125%;" />
+
+                    <span asp-validation-for="EventLocation" class="text-danger"></span>
+                    <br />
+                    <label asp-for="StartDate" class="control-label" style="text-align:center; color:white; font-size:125%;"></label>
+                    <input asp-for="StartDate" class="form-control" size="65" maxlength="255" style="text-align:center; font-size:125%;" />
+
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                    <br />
+                    <label asp-for="EndDate" class="control-label" style="text-align:center; color:white; font-size:125%;"></label>
+                    <input asp-for="EndDate" class="form-control" size="65" maxlength="255" style="text-align:center; font-size:125%;" />
+
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

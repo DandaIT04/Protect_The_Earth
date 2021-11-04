@@ -20,6 +20,10 @@
     <br />
     <h1 class="text-center"><pre><u style="color:red;">@TempData["EventCollision"]</u></pre></h1>
     <br />
+    <form asp-action="CreateEventView" style="text-align:center; align-content:center; align-items:center;">
+        <button type="submit" class="btn btn-primary">Create Event</button>
+    </form>
+    <br />
 
     @if (Model.eventList.Count > 0)
     {
