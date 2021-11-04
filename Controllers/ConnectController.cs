@@ -65,9 +65,47 @@ namespace PFD_SaveTheEnvironment.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                //Update record to database
-                eventUsers.AddUsers(neweUsers);
-                return RedirectToAction("Index", "Connect");
+                List<EventUsers> allEventUsersList = eventUsers.GetAllEventUsers();
+                List<EventConnect> allEventsList = eventContext.GetAllEvents();
+
+                bool isSameTime = false;
+                foreach (EventUsers eventUsers in allEventUsersList)
+                {
+                    if (neweUsers.UserID == eventUsers.UserID)
+                    {
+                        foreach(EventConnect eventList in allEventsList)
+                        {
+                            if(eventList.EventID == eventUsers.EventID)
+                            {
+                                foreach (EventConnect eventList2 in allEventsList)
+                                {
+                                    if(neweUsers.EventID == eventList2.EventID)
+                                    {
+                                        if(eventList2.StartDate == eventList.StartDate ||
+                                           eventList2.StartDate >= eventList.StartDate && eventList2.EndDate <= eventList.EndDate)
+                                        {
+                                            isSameTime = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+
+                if(isSameTime == true)
+                {
+                    TempData["EventCollision"] = "Event time collided with a booked event!";
+                    return RedirectToAction("Index", "Connect");
+                }
+
+                else
+                {
+                    //Update record to database
+                    eventUsers.AddUsers(neweUsers);
+                    return RedirectToAction("Index", "Connect");
+                }
             }
 
             else

@@ -18,111 +18,125 @@
     <h2 class="text-center">Want to make a difference?</h2>
     <h2 class="text-center">Be a volunteer now</h2>
     <br />
+    <h1 class="text-center"><pre><u style="color:red;">@TempData["EventCollision"]</u></pre></h1>
+    <br />
 
     @if (Model.eventList.Count > 0)
     {
-<div class="table-responsive">
-    <table id="viewUserEvent" class="table table-striped table-bordered table-hover table-dark">
-        <thead class="thead-dark">
-            <tr style="text-align:center; align-content:center; align-items:center;">
-                <th hidden>EventID</th>
-                <th hidden>UserID</th>
-                <th>EventName</th>
-                <th>Event Location</th>
-                <th>StartDate</th>
-                <th>EndDate</th>
-                <th>No. Of Participants</th>
-            </tr>
-        </thead>
+        <div class="table-responsive">
+            <table id="viewUserEvent" class="table table-striped table-bordered table-hover table-dark">
+                <thead class="thead-dark">
+                    <tr style="text-align:center; align-content:center; align-items:center;">
+                        <th hidden>EventID</th>
+                        <th hidden>UserID</th>
+                        <th>EventName</th>
+                        <th>Event Location</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                        <th>No. Of Participants</th>
+                        <th>Book</th>
+                    </tr>
+                </thead>
 
-        <tbody>
-            @foreach (var events in Model.eventList)
-            {
-                bool foundInEventUsers3 = false;
-                int countEvents = 0;
-
-
-                @foreach (var eventUsers in Model.eventUsersList)
-                {
-                    string c = Convert.ToString(@TempData["actualUserID"]);
-
-                    if (eventUsers.EventID == events.EventID)
+                <tbody>
+                    @foreach (var events in Model.eventList)
                     {
-                        countEvents += 1;
-                    }
-                }
+                        bool foundInEventUsers3 = false;
+                        int countEvents = 0;
 
-            <tr style="text-align:center; align-content:center; align-items:center;">
-                <td hidden>@events.EventID.ToString()</td>
-                <td hidden>@events.UserID.ToString()</td>
-                <td>@events.EventName.ToString()</td>
-                <td>@events.EventLocation.ToString()</td>
-                <td>@events.StartDate.ToString()</td>
-                <td>@events.EndDate.ToString()</td>
-                <td>@countEvents.ToString()</td>
 
-                @foreach (var users in Model.userList)
-                {
-                    string d = Convert.ToString(@TempData["actualUserID"]);
-
-                    if (Convert.ToString(users.UserID) == d)
-                    {
-                        
-
-                        @foreach (var eventUsers2 in Model.eventUsersList)
+                        @foreach (var eventUsers in Model.eventUsersList)
                         {
-                            if (Convert.ToString(eventUsers2.UserID) == d && eventUsers2.EventID == events.EventID)
+                            string c = Convert.ToString(@TempData["actualUserID"]);
+
+                            if (eventUsers.EventID == events.EventID)
                             {
-                                foundInEventUsers3 = true;
+                                countEvents += 1;
                             }
                         }
 
-                        if (foundInEventUsers3 == false)
+                        DateTime isNow = DateTime.Now;
+
+                        if (isNow.AddHours(2) < events.StartDate)
                         {
-                            Model.EventID = events.EventID;
-                            Model.UserID = users.UserID;
-                            <td>
-                                <p>   </p>
+                            <tr style="text-align:center; align-content:center; align-items:center;">
+                                <td hidden>@events.EventID.ToString()</td>
+                                <td hidden>@events.UserID.ToString()</td>
+                                <td>@events.EventName.ToString()</td>
+                                <td>@events.EventLocation.ToString()</td>
+                                <td>@events.StartDate.ToString()</td>
+                                <td>@events.EndDate.ToString()</td>
+                                <td>@countEvents.ToString()</td>
 
-                                <form asp-action="Index" style="text-align:center; align-content:center; align-items:center;">
-                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                    <div class="form-group">
+                                @foreach (var users in Model.userList)
+                                {
+                                    string d = Convert.ToString(@TempData["actualUserID"]);
 
-                                        <label asp-for="EventID" class="control-label" style="text-align:center;" hidden></label>
-                                        <input asp-for="EventID" class="form-control" hidden />
-                                        <span asp-validation-for="EventID" class="text-danger"></span>
+                                    if (Convert.ToString(users.UserID) == d)
+                                    {
 
-                                        <label asp-for="UserID" class="control-label" style="text-align:center;" hidden></label>
-                                        <input asp-for="UserID" class="form-control" hidden />
 
-                                        <span asp-validation-for="UserID" class="text-danger"></span>
+                                        @foreach (var eventUsers2 in Model.eventUsersList)
+                                        {
+                                            if (Convert.ToString(eventUsers2.UserID) == d && eventUsers2.EventID == events.EventID)
+                                            {
+                                                foundInEventUsers3 = true;
+                                            }
+                                        }
 
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Join Event" class="btn btn-primary" />
-                                    </div>
-                                </form>
-                            </td>
+                                        if (foundInEventUsers3 == false)
+                                        {
+                                            Model.EventID = events.EventID;
+                                            Model.UserID = users.UserID;
+                                            <td>
+                                                <p>   </p>
+
+                                                <form asp-action="Index" style="text-align:center; align-content:center; align-items:center;">
+                                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                    <div class="form-group">
+
+                                                        <label asp-for="EventID" class="control-label" style="text-align:center;" hidden></label>
+                                                        <input asp-for="EventID" class="form-control" hidden />
+                                                        <span asp-validation-for="EventID" class="text-danger"></span>
+
+                                                        <label asp-for="UserID" class="control-label" style="text-align:center;" hidden></label>
+                                                        <input asp-for="UserID" class="form-control" hidden />
+
+                                                        <span asp-validation-for="UserID" class="text-danger"></span>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Join Event" class="btn btn-primary" />
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        }
+                                    }
+
+                                }
+
+
+
+                            </tr>
                         }
                     }
 
-                }
 
 
-
-            </tr>
-            }
-
-
-        </tbody>
-    </table>
-</div>
-                    }
-                    else
-                    {
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
         <span style="color:red">No event records found!</span>
     }
 
-    </body>
+    <br>
+    <h1 class="text-center">FAQ</h1>
+    <h2 class="text-center">Users are not able to join events occuring around the same time</h2>
+    <h2 class="text-center">Events that are occuring two hours from current time will not be shown</h2>
+
+</body>
 
 </html>

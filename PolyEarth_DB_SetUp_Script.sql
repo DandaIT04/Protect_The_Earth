@@ -131,6 +131,11 @@ INSERT [dbo].[EventConnect] ([EventID],[UserID],[EventName], [EventLocation], [S
 VALUES (3,3, 'Trash Removal At Ngee Ann Poly', 'Chua Chu Kang Somewhere','2021-11-04 12:15:00.000','2021-11-04 15:15:00.000')
 SET IDENTITY_INSERT [dbo].[EventConnect] OFF 
 
+SET IDENTITY_INSERT [dbo].[EventConnect] ON 
+INSERT [dbo].[EventConnect] ([EventID],[UserID],[EventName], [EventLocation], [StartDate], [EndDate]) 
+VALUES (4,1, 'Trash Removal At ITE West', 'Chua Chu Kang Somewhere','2021-11-04 16:15:00.000','2021-11-04 18:15:00.000')
+SET IDENTITY_INSERT [dbo].[EventConnect] OFF 
+
 
 
 
