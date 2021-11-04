@@ -24,6 +24,10 @@
         <button type="submit" class="btn btn-primary">Create Event</button>
     </form>
     <br />
+    <form asp-action="CancelEventView" style="text-align:center; align-content:center; align-items:center;">
+        <button type="submit" class="btn btn-primary">Cancel Event</button>
+    </form>
+    <br />
 
     @if (Model.eventList.Count > 0)
     {

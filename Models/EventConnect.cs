@@ -8,6 +8,10 @@ namespace PFD_SaveTheEnvironment.Models
 {
     public class EventConnect
     {
+        public List<Users> userList { get; set; }
+        public List<EventConnect> eventList { get; set; }
+        public List<EventUsers> eventUsersList { get; set; }
+
         public int EventID { get; set; }
         public int UserID { get; set; }
 
@@ -26,6 +30,13 @@ namespace PFD_SaveTheEnvironment.Models
 
         [DataType(DataType.DateTime)]
         public DateTime? EndDate { get; set; }
+
+        public EventConnect()
+        {
+            userList = new List<Users>();
+            eventList = new List<EventConnect>();
+            eventUsersList = new List<EventUsers>();
+        }
 
     }
 }

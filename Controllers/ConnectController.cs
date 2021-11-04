@@ -198,5 +198,49 @@ namespace PFD_SaveTheEnvironment.Controllers
 
         }
 
+        public ActionResult CancelEventView()
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+(HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            TempData["actualUserID"] = HttpContext.Session.GetString("LoginID");
+
+            // Basically a new model is created which stores data contained in other models
+            EventConnect UserEventVM = new EventConnect();
+            UserEventVM.eventList = eventContext.GetAllEvents();
+            UserEventVM.eventUsersList = eventUsers.GetAllEventUsers();
+            UserEventVM.userList = users.GetAllUsers();
+
+            return View(UserEventVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CancelEvent(EventConnect cancelEvent)
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+(HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                eventContext.DeleteEvent(cancelEvent);
+                return RedirectToAction("Index", "Connect");
+            }
+
+            else
+            {
+                //Input validation fails, return to the view
+                //to display error message
+
+                return RedirectToAction("Index", "Connect");
+            }
+        }
+
     }
 }

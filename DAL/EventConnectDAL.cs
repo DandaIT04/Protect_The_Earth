@@ -155,23 +155,30 @@ namespace PFD_SaveTheEnvironment.DAL
             return events;
         }
 
-        public int DeleteEvent(int eventID)
+        public int DeleteEvent(EventConnect events)
         {
             //Instantiate a SqlCommand object, supply it with a DELETE SQL statement
 
-            SqlCommand cmd = conn.CreateCommand();
+            SqlCommand cmd1 = conn.CreateCommand();
 
-
-            cmd.CommandText = @"DELETE FROM EventConnect
+            cmd1.CommandText = @"DELETE FROM EventUsers
             WHERE eventID = @selecteventID";
 
-            cmd.Parameters.AddWithValue("@selecteventID", eventID);
+            cmd1.Parameters.AddWithValue("@selecteventID", events.EventID);
 
             //Open a database connection
             conn.Open();
+
             int rowAffected = 0;
 
-            rowAffected += cmd.ExecuteNonQuery();
+            rowAffected += cmd1.ExecuteNonQuery();
+
+            cmd1.CommandText = @"DELETE FROM EventConnect
+            WHERE eventID = @selecteventID1";
+
+            cmd1.Parameters.AddWithValue("@selecteventID1", events.EventID);
+
+            rowAffected += cmd1.ExecuteNonQuery();
 
             //Close database connection
             conn.Close();
