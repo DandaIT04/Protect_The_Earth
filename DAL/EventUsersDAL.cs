@@ -82,7 +82,7 @@ namespace PFD_SaveTheEnvironment.DAL
             return addUsers.EventID;
         }
 
-        public int RemoveJudges(EventUsers toDelete)
+        public int RemoveEvents(EventUsers toDelete)
         {
             //Instantiate a SqlCommand object, supply it with a DELETE SQL statement
 

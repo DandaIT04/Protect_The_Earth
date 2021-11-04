@@ -242,5 +242,40 @@ namespace PFD_SaveTheEnvironment.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CancelIndex(UserEventViewModel selectedEvent)
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+            (HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                int selectEvent = selectedEvent.EventID;
+                int selectUser = selectedEvent.UserID;
+
+                EventUsers neweUsers = new EventUsers();
+
+                // Assign neweUsers values with the int variable values
+                neweUsers.EventID = selectEvent;
+                neweUsers.UserID = selectUser;
+
+
+                eventUsers.RemoveEvents(neweUsers);
+                return RedirectToAction("Index", "Connect");
+            }
+
+            else
+            {
+                //Input validation fails, return to the view
+                //to display error message
+                return RedirectToAction("Index", "Connect");
+            }
+
+        }
+
     }
 }
