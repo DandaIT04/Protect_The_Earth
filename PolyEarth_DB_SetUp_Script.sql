@@ -100,6 +100,28 @@ GO
 ALTER TABLE [dbo].[EventUsers] CHECK CONSTRAINT [FK_EventUsers_UserID]
 GO
 
+/***************************************************************/
+/***                     Creating tables                     ***/
+/***************************************************************/
+
+/* Table: dbo.Vouchers */
+
+
+CREATE TABLE Vouchers (
+
+VoucherID INT IDENTITY PRIMARY KEY,
+
+UserID INT NULL FOREIGN KEY REFERENCES Users (UserID),
+
+VoucherName varchar(100) 	NOT NULL,
+
+VoucherDescription varchar(100) 	NOT NULL,
+
+VoucherCost [int] 	NOT NULL DEFAULT ('1000')
+
+)
+
+GO
 
 /***************************************************************/
 /***                Populate Sample Data                     ***/
@@ -114,6 +136,10 @@ VALUES (2, 'Casca Susan', 'Mrs', 'cs1@gmail.com', 'password123', '100', '3', '20
 INSERT [dbo].[Users] ([UserID], [UserName], [Salutation], [EmailAddr], [Password], [Score], [Badges], [DateCreated])  
 VALUES (3, 'Gon Yeager', 'Dr', 'gy1@hotmail.com', 'password123', '999', '2', '2020-01-02')
 SET IDENTITY_INSERT [dbo].[Users] OFF 
+
+/***************************************************************/
+/***                Populate Sample Data                     ***/
+/***************************************************************/
 
 /* Table: dbo.EventConnect */
 SET IDENTITY_INSERT [dbo].[EventConnect] ON 
@@ -136,7 +162,19 @@ INSERT [dbo].[EventConnect] ([EventID],[UserID],[EventName], [EventLocation], [S
 VALUES (4,1, 'Trash Removal At ITE West', 'Chua Chu Kang Somewhere','2021-11-04 16:15:00.000','2021-11-04 18:15:00.000')
 SET IDENTITY_INSERT [dbo].[EventConnect] OFF 
 
+/***************************************************************/
+/***                Populate Sample Data                     ***/
+/***************************************************************/
 
+/* Table: dbo.Vouchers */
+SET IDENTITY_INSERT [dbo].[Vouchers] ON 
+INSERT [dbo].[Vouchers] ([VoucherID], [UserID], [VoucherName], [VoucherDescription], [VoucherCost]) 
+VALUES (1, NULL, 'NTUC Voucher $30', 'Fairprice $30 Voucher', 1000)
+INSERT [dbo].[Vouchers] ([VoucherID], [UserID], [VoucherName], [VoucherDescription], [VoucherCost])  
+VALUES (2, NULL, 'NTUC Voucher $30', 'Fairprice $30 Voucher', 1000)
+INSERT [dbo].[Vouchers] ([VoucherID], [UserID], [VoucherName], [VoucherDescription], [VoucherCost])  
+VALUES (3, NULL, 'NTUC Voucher $30', 'Fairprice $30 Voucher', 1000)
+SET IDENTITY_INSERT [dbo].[Vouchers] OFF
 
 
 
