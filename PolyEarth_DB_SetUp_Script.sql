@@ -36,8 +36,8 @@ CREATE TABLE dbo.Users
                                         CHECK (Salutation IN ('Dr','Mr','Ms','Mrs','Mdm')),
   EmailAddr		    	varchar(50)  	NOT NULL,
   [Password]		    varchar(255)  	NOT NULL DEFAULT ('password123'),
-  Score		varchar(50) 	NOT NULL DEFAULT ('0'),
-  Badges		varchar(50) 	NOT NULL DEFAULT ('0'),
+  Score		[int] 	NOT NULL DEFAULT ('0'),
+  Badges		[int] 	NOT NULL DEFAULT ('0'),
   DateCreated		date 	NULL,
   CONSTRAINT PK_Users PRIMARY KEY NONCLUSTERED (UserID)
 )

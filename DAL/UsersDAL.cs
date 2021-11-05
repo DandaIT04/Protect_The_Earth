@@ -48,8 +48,8 @@ namespace PFD_SaveTheEnvironment.DAL
                     Salutation = reader.GetString(2),
                     EmailAddr = reader.GetString(3),
                     Password = reader.GetString(4),
-                    Score = reader.GetString(5),
-                    Badges = reader.GetString(6),
+                    Score = reader.GetInt32(5),
+                    Badges = reader.GetInt32(6),
                     DateCreated = reader.GetDateTime(7),
                 }
                 );
@@ -181,8 +181,8 @@ namespace PFD_SaveTheEnvironment.DAL
                     user.Salutation = !reader.IsDBNull(2) ? reader.GetString(2) : null;
                     user.EmailAddr = !reader.IsDBNull(3) ? reader.GetString(3) : null;
                     user.Password = !reader.IsDBNull(4) ? reader.GetString(4) : null;
-                    user.Score = reader.GetString(5);
-                    user.Badges = reader.GetString(6);
+                    user.Score = reader.GetInt32(5);
+                    user.Badges = reader.GetInt32(6);
                     user.DateCreated = reader.GetDateTime(7);
                 }
             }
