@@ -32,9 +32,9 @@
     @if (Model.eventList.Count > 0)
     {
         <div class="table-responsive">
-            <table id="viewUserEvent" class="table table-striped table-bordered table-hover table-dark">
-                <thead class="thead-dark">
-                    <tr style="text-align:center; align-content:center; align-items:center;">
+            <table id="viewUserEvent" class="table table-striped table-bordered table-hover table-info">
+                <thead class="table-info">
+                    <tr style="text-align:center; align-content:center; align-items:center;"> 
                         <th hidden>EventID</th>
                         <th hidden>UserID</th>
                         <th>EventName</th>
@@ -67,14 +67,14 @@
 
                         if (isNow.AddHours(2) < events.StartDate)
                         {
-                    <tr style="text-align:center; align-content:center; align-items:center;">
-                        <td hidden>@events.EventID.ToString()</td>
-                        <td hidden>@events.UserID.ToString()</td>
-                        <td>@events.EventName.ToString()</td>
-                        <td>@events.EventLocation.ToString()</td>
-                        <td>@events.StartDate.ToString()</td>
-                        <td>@events.EndDate.ToString()</td>
-                        <td>@countEvents.ToString()</td>
+                    <tr style="text-align:center; align-content:center; align-items:center;" class="table-warning">
+                        <td style="text-align:center; align-content:center; align-items:center;" hidden>@events.EventID.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;" hidden>@events.UserID.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;">@events.EventName.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;">@events.EventLocation.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;">@events.StartDate.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;">@events.EndDate.ToString()</td>
+                        <td style="text-align:center; align-content:center; align-items:center;">@countEvents.ToString()</td>
 
                         @foreach (var users in Model.userList)
                         {
