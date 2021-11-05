@@ -108,5 +108,42 @@ namespace PFD_SaveTheEnvironment.DAL
             return rowAffected;
         }
 
+        public List<EventConnect> GetUserEvents(int userID)
+        {
+            //Create a SqlCommand object from connection object 
+            SqlCommand cmd = conn.CreateCommand();
+            //Specify the SELECT SQL statments
+            cmd.CommandText = @"SELECT x.EventID, x.EventName, x.EventLocation, x.StartDate, x.EndDate 
+                                FROM EventConnect x INNER JOIN Users y ON x.UserID = y.UserID 
+                                WHERE y.UserID=@userID";
+            cmd.Parameters.AddWithValue("@userID", userID);
+            //Open a database connection
+            conn.Open();
+            //Execute the SELECT SQL through a DataReader
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //Read all records until the end, save data into a competition list
+            List<EventConnect> eventList = new List<EventConnect>();
+            while (reader.Read())
+            {
+                eventList.Add(
+                    new EventConnect
+                    {
+                        EventID = reader.GetInt32(0),
+                        EventName = reader.GetString(1),
+                        EventLocation = reader.GetString(2),
+                        StartDate = reader.GetDateTime(3),
+                        EndDate = reader.GetDateTime(4),
+                    }
+                );
+            }
+            //Close DataReader
+            reader.Close();
+            //Close the database connection
+            conn.Close();
+            return eventList;
+        }
     }
+
+    
 }
