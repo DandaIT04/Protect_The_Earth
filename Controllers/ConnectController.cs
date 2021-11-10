@@ -277,5 +277,23 @@ namespace PFD_SaveTheEnvironment.Controllers
 
         }
 
+        public ActionResult JoinedEventsView()
+        {
+            if ((HttpContext.Session.GetString("Role") == null) || (HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            TempData["actualUserID"] = HttpContext.Session.GetString("LoginID");
+
+            // Basically a new model is created which stores data contained in other models
+            UserEventViewModel UserEventVM = new UserEventViewModel();
+            UserEventVM.eventList = eventContext.GetAllEvents();
+            UserEventVM.eventUsersList = eventUsers.GetAllEventUsers();
+            UserEventVM.userList = users.GetAllUsers();
+
+            return View(UserEventVM);
+        }
+
     }
 }
