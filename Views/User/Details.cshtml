@@ -53,7 +53,7 @@
                         <div class="col-sm-3">
                             <h6>@Html.DisplayNameFor(model => model.DateCreated):</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">@Html.DisplayFor(model => model.DateCreated)</div>
+                        <div class="col-sm-9 text-secondary">@Model.DateCreated.Date.ToString("dd-MMMM-yyyy")</div>
                     </div>
                     <hr>
                     <div class="text-center">
