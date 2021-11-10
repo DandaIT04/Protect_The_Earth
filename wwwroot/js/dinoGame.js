@@ -3,10 +3,13 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
-    myGamePiece.gravity = 1;
-    myScore = new component("30px", "Consolas", "black", 170, 80, "text");
-    myGameArea.start();
+    window.alert("Start Game? Game will load after 2 seconds.");
+    setTimeout(function () {
+        myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
+        myGamePiece.gravity = 1;
+        myScore = new component("30px", "Consolas", "black", 170, 80, "text");
+        myGameArea.start();
+    }, 2000);
 }
 
 var myGameArea = {
@@ -159,11 +162,13 @@ function accelerate(n) {
 document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
         myGamePiece.gravity = 0.15;
+        return e.keyCode !== 32;
     }
 })
 
 document.addEventListener('keydown', event => {
     if (event.code === 'Space') {
         myGamePiece.gravity = -0.15;
+        return e.keyCode !== 32;
     }
 })

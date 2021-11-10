@@ -3,10 +3,14 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120,"image");
-    myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 170, 80, "text");
-    myGameArea.start();
+    window.alert("Start Game? Game will load after 1 second.");
+    setTimeout(function () {
+        myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
+        myGamePiece.gravity = 0.05;
+        myScore = new component("30px", "Consolas", "black", 170, 80, "text");
+        myGameArea.start();
+    }, 1000);
+    
 }
 
 var myGameArea = {
