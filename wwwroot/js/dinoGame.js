@@ -159,3 +159,4 @@ document.addEventListener('keydown', event => {
         myGamePiece.gravity = -0.15;
     }
 })
+
