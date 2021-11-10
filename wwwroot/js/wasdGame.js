@@ -3,10 +3,14 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120,"image");
-    myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 170, 80, "text");
-    myGameArea.start();
+    window.alert("Start Game? Game will load after 1 second.");
+    setTimeout(function () {
+        myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
+        myGamePiece.gravity = 0.05;
+        myScore = new component("30px", "Consolas", "black", 170, 80, "text");
+        myGameArea.start();
+    }, 1000);
+    
 }
 
 var myGameArea = {
@@ -67,10 +71,18 @@ function component(width, height, color, x, y, type) {
     }
     this.hitBottom = function () {
         var rockbottom = myGameArea.canvas.height - this.height;
+        var rocktop = myGameArea.canvas.height - myGameArea.canvas.height + this.height - 30;
+
         if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
         }
+
+        else if (this.y < rocktop) {
+            this.y = rocktop;
+            this.gravitySpeed = 0;
+        }
+
     }
     this.crashWith = function (otherobj) {
         var myleft = this.x;
