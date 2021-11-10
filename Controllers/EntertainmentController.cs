@@ -22,5 +22,10 @@ namespace PFD_SaveTheEnvironment.Controllers
         {
             return View();
         }
+
+        public IActionResult pointRedemption()
+        {
+            return View();
+        }
     }
 }
