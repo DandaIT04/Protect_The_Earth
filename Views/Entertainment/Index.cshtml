@@ -3,6 +3,15 @@
 }
 
 <!DOCTYPE HTML>
+<style>
+    .button {
+        display: inline-block;
+        padding: 3px 5px;
+        border: 1px solid #000;
+        background: #eee;
+        font-size: 200%;
+    }
+</style>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,19 +19,6 @@
                                            initial-scale = 1" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<style>
-    /* or put this in your stylesheet */
-    /* credits to https://stackoverflow.com/questions/3682805/javascript-load-a-page-on-button-click */
-
-    .button {
-        display: inline-block;
-        padding: 3px 5px;
-        border: 1px solid #000;
-        background: #eee;
-        font-size:200%;
-    }
-
-</style>
 <body>
     <br>
     <h1 class="font-weight-bold text-center">PolyEarth Games</h1>
@@ -67,4 +63,32 @@
             </div>
         </div>
     </div>
+    <br />
+    <hr />
+    <br />
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="showCredits()" id="creditsButton">Hide Credits</button>
+        <br />
+        <div id="gameCredits" class="gameCredits">
+            <br />
+            <p>Earth logo by <a href="https://www.flaticon.com/authors/freepik" target="_blank">Visit freepik!</a> </p>
+            <div> Nestle icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div> Coca Cola Icon made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div> Pepsi Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+    </div>
+    <br />
+    <script>
+        function showCredits() {
+            var gameCredits = document.getElementById("gameCredits");
+            if (gameCredits.style.display === "none") {
+                gameCredits.style.display = "block";
+                document.getElementById("creditsButton").innerHTML = 'Hide Credits'
+            } else {
+                gameCredits.style.display = "none";
+                document.getElementById("creditsButton").innerHTML = 'Show Credits'
+            }
+        }
+    </script>
 </body>
+</html>

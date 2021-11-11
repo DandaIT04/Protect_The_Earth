@@ -35,18 +35,6 @@
             text-align:center;
         }
 
-        .theButton {
-            margin-top: 55px;
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 26px;
-        }
-
         @@media screen and (max-width: 1200px) {
             .theButton {
                 margin-top: 75px;
@@ -92,18 +80,12 @@
     </style>
 </head>
 <body onload="startGame()">
-    <br>
     <div class="container ">
         <div class="center">
             <script src="~/js/wasdGame.js" type="text/javascript"></script>
-            <button class="theButton" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Gravitate</button>
             <p>The earth is under attack by non-environmental friendly companies!</p>
             <p>Click Gravitate to avoid annihilation!</p>
-            <br />
-            <p>Earth logo by <a href="https://www.flaticon.com/authors/freepik" target="_blank">Visit freepik!</a> </p>
-            <div> Nestle icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div> Coca Cola Icon made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div> Pepsi Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <button type="button" class="btn btn-primary theButton" data-toggle="button" aria-pressed="false" autocomplete="off" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Gravitate</button>
         </div>
     </div>
 </body>

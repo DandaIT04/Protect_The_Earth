@@ -91,20 +91,13 @@
     </style>
 </head>
 <body onload="startGame()">
-    <br>
-    <div class="container ">
+    <br />
+    <div class="container">
         <div class="center">
-            <br />
             <script src="~/js/dinoGame.js" type="text/javascript"></script>
-            <br />
-            <button class="theButton" onmousedown="accelerate(-0.15)" onmouseup="accelerate(0.15)">Jump!</button>
             <p>The earth is soon to be under collision with environmentally harming companies! Avoid them at all costs by jumping!</p>
             <p>Click jump to avoid annihilation!</p>
-            <br />
-            <p>Earth logo by <a href="https://www.flaticon.com/authors/freepik" target="_blank">Visit freepik!</a> </p>
-            <div> Nestle icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div> Coca Cola Icon made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div> Pepsi Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onmousedown="accelerate(-0.15)" onmouseup="accelerate(0.15)">Jump!</button>
         </div>
     </div>
 </body>
