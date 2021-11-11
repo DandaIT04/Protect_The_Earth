@@ -3,13 +3,18 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    window.alert("Start Game? Game will load after 2 seconds.");
-    setTimeout(function () {
-        myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
-        myGamePiece.gravity = 1;
-        myScore = new component("30px", "Consolas", "black", 170, 80, "text");
-        myGameArea.start();
-    }, 2000);
+    var userChoice;
+    var userChoice = confirm("Start EarthJump! Game?");
+    if (userChoice == true) {
+        setTimeout(function () {
+            myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
+            myGamePiece.gravity = 0.05;
+            myScore = new component("30px", "Consolas", "black", 170, 80, "text");
+            myGameArea.start();
+        }, 500);
+    } else {
+        window.location.href = '/Entertainment/Index/';
+    }
 }
 
 var myGameArea = {
