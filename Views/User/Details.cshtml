@@ -53,11 +53,11 @@
                         <div class="col-sm-3">
                             <h6>@Html.DisplayNameFor(model => model.DateCreated):</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary">@Html.DisplayFor(model => model.DateCreated)</div>
+                        <div class="col-sm-9 text-secondary">@Model.DateCreated.Date.ToString("dd-MMMM-yyyy")</div>
                     </div>
                     <hr>
                     <div class="text-center">
-                        <a class="btn btn-danger text-white rounded-pill mr-2" asp-action="Logout" asp-controller="Home">Log Out</a>
+                        <a class="btn btn-danger text-white rounded-pill mr-2" asp-action="userLogout" asp-controller="Home">Log Out</a>
                     </div>
                 </div>
             </div>

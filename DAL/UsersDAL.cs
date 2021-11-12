@@ -24,6 +24,43 @@ namespace PFD_SaveTheEnvironment.DAL
             "PolyEarthConnectionString");
             conn = new SqlConnection(strConn);
         }
+
+        public List<Users> GetAllUsers()
+        {
+
+            //Create a SqlCommand object from connection object
+            SqlCommand cmd = conn.CreateCommand();
+            //Specify the SELECT SQL statement
+            cmd.CommandText = @"SELECT * FROM Users ORDER BY UserID";
+            //Open a database connection
+            conn.Open();
+            //Execute the SELECT SQL through a DataReader
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            List<Users> userList = new List<Users>();
+            while (reader.Read())
+            {
+                userList.Add(
+                new Users
+                {
+                    UserID = reader.GetInt32(0), //0: 1st column
+                    UserName = reader.GetString(1),
+                    Salutation = reader.GetString(2),
+                    EmailAddr = reader.GetString(3),
+                    Password = reader.GetString(4),
+                    Score = reader.GetInt32(5),
+                    Badges = reader.GetInt32(6),
+                    DateCreated = reader.GetDateTime(7),
+                }
+                );
+            }
+            //Close DataReader
+            reader.Close();
+            //Close the database connection
+            conn.Close();
+            return userList;
+        }
+
         public bool IsUserExist(string email, int userId) //Create new validation (True means email already used)
         {
             bool emailFound = false;
@@ -154,5 +191,6 @@ namespace PFD_SaveTheEnvironment.DAL
 
             return user;
         }
+
     }
 }

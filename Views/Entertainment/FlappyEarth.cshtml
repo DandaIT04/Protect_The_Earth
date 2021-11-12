@@ -17,7 +17,7 @@
             margin-right: auto;
             border: 1px solid #d3d3d3;
             display: block;
-            background-color: #f1f1f1;
+            background-color: #d3d3d3;
         }
 
         .container {
@@ -34,6 +34,61 @@
             transform: translate(-50%, -50%);
             text-align:center;
         }
+
+        .theButton {
+            margin-top: 55px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 26px;
+        }
+
+        @@media screen and (max-width: 1200px) {
+            .theButton {
+                margin-top: 75px;
+            }
+        }
+
+        @@media screen and (max-width: 1000px) {
+            .theButton {
+                margin-top: 95px;
+            }
+        }
+
+        @@media screen and (max-width: 990px) {
+            .theButton {
+                margin-top: 159px;
+            }
+        }
+
+        @@media screen and (max-width: 540px) {
+            .theButton {
+                margin-top: 190px;
+            }
+        }
+
+        @@media screen and (max-width: 519px) {
+            .theButton {
+                margin-top: 240px;
+            }
+        }
+
+        @@media screen and (max-width: 429px) {
+            .theButton {
+                margin-top: 290px;
+            }
+        }
+
+        @@media screen and (max-width: 385px) {
+            .theButton {
+                margin-top: 345px;
+            }
+        }
+
     </style>
 </head>
 <body onload="startGame()">
@@ -41,7 +96,7 @@
     <div class="container ">
         <div class="center">
             <script src="~/js/wasdGame.js" type="text/javascript"></script>
-            <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Gravitate</button>
+            <button class="theButton" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Gravitate</button>
             <p>The earth is under attack by non-environmental friendly companies!</p>
             <p>Click Gravitate to avoid annihilation!</p>
             <br />
