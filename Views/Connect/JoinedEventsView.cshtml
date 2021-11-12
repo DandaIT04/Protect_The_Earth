@@ -20,6 +20,7 @@
     @if (Model.eventList.Count > 0)
     {
         <h5 class="">Current Events</h5>
+        <br/>
         <div class="table-responsive">
             <table id="viewUserEvent" class="table table-striped table-bordered table-hover">
                 <caption>Users are not able to join events occuring around the same time.</caption>
@@ -98,8 +99,10 @@
         </div>
         <br />
         <h5 class="">Events History</h5>
+        <br/>
         <div class="table-responsive">
             <table id="viewUserEvent" class="table table-striped table-bordered table-hover">
+                <caption>Events that you have participated in previously.</caption>
                 <thead class="bg-primary text-white">
                     <tr style="text-align:center; align-content:center; align-items:center;">
                         <th hidden>EventID</th>
