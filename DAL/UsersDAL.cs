@@ -191,6 +191,28 @@ namespace PFD_SaveTheEnvironment.DAL
 
             return user;
         }
+        public string GetUserName(string userId)
+        {
+            SqlCommand cmd = conn.CreateCommand();
 
+            cmd.CommandText = @"SELECT UserName FROM Users WHERE UserID = @userId";
+
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            string userName = "";
+            while (reader.Read())
+            {
+                userName = reader.GetString(0);
+            }
+            //Close DataReader
+            reader.Close();
+            //Close the database connection
+            conn.Close();
+
+            return userName;
+        }
     }
 }
