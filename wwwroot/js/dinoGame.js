@@ -9,7 +9,7 @@ function startGame() {
         setTimeout(function () {
             myGamePiece = new component(30, 30, "https://localhost:44302/images/earth-globe.png", 10, 120, "image");
             myGamePiece.gravity = 0.05;
-            myScore = new component("30px", "Consolas", "black", 170, 80, "text");
+            myScore = new component("30px", "Consolas", "black", 430, 40, "text");
             myGameArea.start();
         }, 500);
     } else {
@@ -149,7 +149,7 @@ function updateGameArea() {
         myObstacles[i].x += -2;
         myObstacles[i].update();
     }
-    myScore.text = "SCORE: " + myGameArea.frameNo;
+    myScore.text = Math.round(myGameArea.frameNo/100).toString().padStart(3,'0');
     myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
