@@ -9,25 +9,15 @@
 {
     <h5 class="text-center font-weight-normal">🛑 Create an Account or Log In to comment in the Discussion Board! 🛑</h5>
 }
+
 <hr />
-<!--
-    if (Convert.ToString(ViewData["Role"]) == "User")
+
+@if (Convert.ToString(ViewData["Role"]) == "User")
 {
     <br />
-    <form asp-action="Create" asp-controller="Comments" method="post">
-        <div class="form-group">
-            <h5>Post your Comment</h5>
-            <input asp-for="Id" class="form-control" type="hidden" readonly />
-            <input asp-for="UserName" class="form-control" type="hidden" readonly />
-            <input asp-for="Comment" class="form-control" id="commentArea" rows="3" placeholder="Enter your Comment..." aria-describedby="textHelp">
-            <small id="textHelp" class="text-muted">All comments posted are publicly available and will be posted under your name.</small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <br />
+    <a class="btn btn-primary text-white rounded mr-2" asp-action="Create" asp-controller="Comments">Post a Comment</a>
     <hr />
 }
--->
 @if (Model.ToList().Count > 0)
 {
     @foreach (var item in Model.OrderByDescending(c => c.Id).ToList())
