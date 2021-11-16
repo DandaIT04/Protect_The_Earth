@@ -3,8 +3,6 @@
     padding: 0;
 }
 
-
-
 .iframe-container iframe{
     position:relative;
 }
@@ -29,4 +27,8 @@
 
 .nytArticles img {
     margin-bottom: 20px;
+}
+
+.content img {
+    margin-left:5%;
 }
