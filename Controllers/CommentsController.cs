@@ -40,30 +40,53 @@ namespace PFD_SaveTheEnvironment.Controllers
                 return View(new List<Comments>());
             }
         }
-        public async Task<ActionResult> Create(IFormCollection collection)
+        public ActionResult Create()
         {
-            string commentText = collection["item.Comment"];
-            // Transfer data read to a vote object
-            Comments c = new Comments();
-            c.Id = 0;
-            c.UserName = userContext.GetUserName(HttpContext.Session.GetString("LoginID"));
-            c.Comment = commentText;
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new
-            Uri("https://commentsapi20211115072014.azurewebsites.net/");
-            string json = JsonConvert.SerializeObject(c);
-            StringContent commentscontent = new StringContent(json, UnicodeEncoding.UTF8,
-            "application/json");
-            HttpResponseMessage response = await client.PostAsync("/api/comments",
-            commentscontent);
-            if (response.StatusCode == HttpStatusCode.Created)
+            //Check if the Role of the user is a Judge
+            if ((HttpContext.Session.GetString("Role") == null) ||
+            (HttpContext.Session.GetString("Role") != "User"))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
+            }
+            ViewData["userName"] = userContext.GetUserName(HttpContext.Session.GetString("LoginID"));
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(Comments c)
+        {
+            ViewData["userName"] = userContext.GetUserName(HttpContext.Session.GetString("LoginID"));
+
+            if (ModelState.IsValid)
+            {
+                c.Id = 0;
+                c.UserName = userContext.GetUserName(HttpContext.Session.GetString("LoginID"));
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new
+                Uri("https://commentsapi20211115072014.azurewebsites.net/");
+                string json = JsonConvert.SerializeObject(c);
+                StringContent commentscontent = new StringContent(json, UnicodeEncoding.UTF8,
+                "application/json");
+                HttpResponseMessage response = await client.PostAsync("/api/comments",
+                commentscontent);
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["Message"] = "Failed to add comment!";
+                    return RedirectToAction("Index", "Comments");
+                }
             }
             else
             {
-                TempData["Message"] = "Failed to add comment!";
-                return RedirectToAction("Index", "Comments");
+                //Input validation fails, return to the Create view
+                //to display error message
+                TempData["Message"] = "";
+                return View(c);
             }
         }
     }

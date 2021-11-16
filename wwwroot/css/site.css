@@ -3,9 +3,7 @@
     padding: 0;
 }
 
-html{
-    scroll-behavior: smooth;
-}
+
 
 .iframe-container iframe{
     position:relative;
@@ -15,4 +13,24 @@ html{
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.nytArticles a {
+    display: block;
+    color: #333;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.nytArticles p {
+    margin-bottom: 32px;
+}
+
+.nytArticles img {
+    margin-bottom: 20px;
+}
+
+.content img {
+    margin-left:5%;
 }
