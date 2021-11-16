@@ -214,5 +214,26 @@ namespace PFD_SaveTheEnvironment.DAL
 
             return userName;
         }
+
+        public int AddGamePoint(string userID, int point)
+        {
+            Users user = GetDetails(Convert.ToInt32(userID));
+            user.Score += point;
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandText = @"Update Users
+                                Set Score = @selectedScore
+                                WHERE UserID = @selectedUserID";
+
+            cmd.Parameters.AddWithValue("@selectedScore", user.Score);
+            cmd.Parameters.AddWithValue("@selectedUserID", userID);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            return user.Score;
+        }
     }
 }

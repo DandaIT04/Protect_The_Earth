@@ -105,9 +105,13 @@ function component(width, height, color, x, y, type) {
 }
 
 function updateGameArea() {
-    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap, userScore;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+
+            userScore = document.getElementById('userScore');
+            userScore.innerHTML = myScore;
+
             location.reload();
             window.alert("You lose! The earth is destroyed!");
             return;
@@ -177,4 +181,5 @@ document.addEventListener('keydown', event => {
         return e.keyCode !== 32;
     }
 })
+
 

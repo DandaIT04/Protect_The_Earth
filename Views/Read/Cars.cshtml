@@ -1,85 +1,163 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Learning Material - Cars";
 }
-<img src="~/images/carGlobalWarming.jpg" style="height:60vh; width=60vh" />
-<br />
-<a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.greenmatters.com%2Fp%2Fwhat-emissions-do-cars-produce&psig=AOvVaw1Fm5u9p1XyUtx6lYyAEcyz&ust=1636566268444000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDtg-Hqi_QCFQAAAAAdAAAAABAD">Link</a>
-<br />
-<h1>Top 10 Car companies that harms the environment</h1>
-
-<div>
-    <a href="#volks">1. Volkswagen</a><br />
-    <a href="#bmw">2. Bayerische Motoren Werke GmbH (BMW)</a><br />
-    <a href="#toyota">3. Toyota</a><br />
-    <a href="#">4. </a><br />
-    <a href="#">5. </a><br />
-    <a href="#">6. </a><br />
-    <a href="#">7. </a><br />
-    <a href="#">8. </a><br />
-    <a href="#">9. </a><br />
-    <a href="#">10. </a><br />
-</div>
-
-<div id="volks">
-    <h3>1. Volkswagen</h3>
-    <p style="width:60%">
-        It was claimed that the cars being sold by Volkswagen were fitted with devices that appears
-        to put the vehicle under a sort of safety mode which could detect when they were being tested,
-        causing the engine to run below normal power and performance. After the engines were switched
-        out of the test mode, it was shown that the engines emitted nitrogen oxide pollutants up to
-        40 times above what is allowed in the US.
-    </p>
-    <a href="https://www.bbc.com/news/business-34324772">Link to source</a>
-</div>
-
-<div id="bmw">
-    <h3>2. Bayerische Motoren Werke GmbH (BMW)</h3>
-    <p style="width:60%">
-       The EU issued fines of $1 billion to Volkswagen and BMW for their involvement in the emissions cartel
-        Like Volkswagen, it was claimed that BMW also possesses the technology to reduce harmful emissions 
-        beyond what was legally required under the EU emission standard but avoided to compete on using that
-        technology's full potential to clean better than what is required by law.
-    </p>
-    <a href="https://techcrunch.com/2021/07/08/eu-fines-bmw-vw-1b-for-running-emissions-cartel-since-the-90s/">Link to source</a>
-</div>
-
-<div id="toyota">
-    <h3>3. Toyota</h3>
-    <p style="width:60%">
-        The world's top-selling carmaker Toyota has come joint last in a Greenpeace ranking of carbon emission 
-        efforts by auto firms, according to a list published Thursday during the COP26 climate summit. Toyota 
-        was given a F minus minus grade for decarbonisation efforts including phasing out engines that burn
-        plant-warming fossil fuels in favour of electric vehicles.
-    </p>
-    <a href="https://www.france24.com/en/live-news/20211103-toyota-ranked-one-of-worst-major-automakers-for-emissions-efforts">Link to source</a>
-</div>
-
-<div id="ford">
-    <h3>4. Ford</h3>
-    <p style="width:60%">
-        Three quarters of the planet-heating CO2 emissions Ford is responsible for come from consumers driving its cars.
-        The vehicles that ford sells create 135 million metric tons of carbon dioxide, according to a sustainability
-        report that the company released. That is almost as much as as 35 coal-fired power plants would produce in a
-        year.
-    </p>
-    <a href="https://www.theverge.com/2020/6/24/21300974/ford-carbon-neutral-2050-climate-change-fuel-efficiency">Link to source</a>
-</div>
 
 
-<h3>1. Nestle</h3>
+<!DOCTYPE HTML>
+<html style="scroll-behavior:smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width,
+                                           initial-scale = 1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 
-<h3>1. Nestle</h3>
+<body>
+    <img src="~/images/carGlobalWarming.jpg" style="height:60vh; width=70vh" class="mt-3" />
+    <br />
+    <p style="font-size:8px">Image Source : <a>https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.greenmatters.com%2Fp%2Fwhat-emissions-do-cars-produce&psig=AOvVaw1Fm5u9p1XyUtx6lYyAEcyz&ust=1636566268444000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDtg-Hqi_QCFQAAAAAdAAAAABAD</a></p>
 
-<h3>1. Nestle</h3>
+    <div>
+        <h2>Top 5 Car companies that are good and bad the environment</h2><br />
+        <h5>Bad</h5><hr />
+        <a href="#volks">1. Volkswagen</a><br />
+        <a href="#bmw">2. Bayerische Motoren Werke GmbH (BMW)</a><br />
+        <a href="#toyota">3. Toyota</a><br />
+        <a href="#ford">4. Ford</a><br />
+        <a href="#hyundainKia">5. Hyundai-Kia</a><br />
+        <h5>Good</h5><hr />
+        <a href="#tesla">1. Tesla</a><br />
+        <a href="#honda">2. Honda</a><br />
+        <a href="#nissan">3. Nissan</a><br />
+        <a href="#gm">4. General Motors</a><br />
+        <a href="#renault">5. Renault</a><br />
+    </div>
 
-<h3>1. Nestle</h3>
+    <br />
 
-<h3>1. Nestle</h3>
+    <div id="volks">
+        <h3>1. Volkswagen</h3>
+        <p style="width:60%">
+            It was claimed that the cars being sold by Volkswagen were fitted with devices that appears
+            to put the vehicle under a sort of safety mode which could detect when they were being tested,
+            causing the engine to run below normal power and performance. After the engines were switched
+            out of the test mode, it was shown that the engines emitted nitrogen oxide pollutants up to
+            40 times above what is allowed in the US.
+        </p>
+        <a href="https://www.bbc.com/news/business-34324772">Link to source</a>
+    </div>
+    <br />
 
-<h3>1. Nestle</h3>
+    <div id="bmw">
+        <h3>2. Bayerische Motoren Werke GmbH (BMW)</h3>
+        <p style="width:60%">
+            The EU issued fines of $1 billion to Volkswagen and BMW for their involvement in the emissions cartel
+            Like Volkswagen, it was claimed that BMW also possesses the technology to reduce harmful emissions
+            beyond what was legally required under the EU emission standard but avoided to compete on using that
+            technology's full potential to clean better than what is required by law.
+        </p>
+        <a href="https://techcrunch.com/2021/07/08/eu-fines-bmw-vw-1b-for-running-emissions-cartel-since-the-90s/">Link to source</a>
+    </div>
+    <br />
 
-<h3>1. Nestle</h3>
+    <div id="toyota">
+        <h3>3. Toyota</h3>
+        <p style="width:60%">
+            The world's top-selling carmaker Toyota has come joint last in a Greenpeace ranking of carbon emission
+            efforts by auto firms, according to a list published Thursday during the COP26 climate summit. Toyota
+            was given a F minus minus grade for decarbonisation efforts including phasing out engines that burn
+            plant-warming fossil fuels in favour of electric vehicles.
+        </p>
+        <a href="https://www.france24.com/en/live-news/20211103-toyota-ranked-one-of-worst-major-automakers-for-emissions-efforts">Link to source</a>
+    </div>
+    <br />
 
-<h3>1. Nestle</h3>
+    <div id="ford">
+        <h3>4. Ford</h3>
+        <p style="width:60%">
+            Three quarters of the planet-heating CO2 emissions Ford is responsible for come from consumers driving its cars.
+            The vehicles that ford sells create 135 million metric tons of carbon dioxide, according to a sustainability
+            report that the company released. That is almost as much as as 35 coal-fired power plants would produce in a
+            year.
+        </p>
+        <a href="https://www.theverge.com/2020/6/24/21300974/ford-carbon-neutral-2050-climate-change-fuel-efficiency">Link to source</a>
+    </div>
+    <br />
+
+    <div id="hyundainKia">
+        <h3>5. Hyundai - Kia</h3>
+        <p style="width:60%">
+            Hyundai-Kia was given a grade ranging from F plus to minus during the COP26 climate summit by Greenpeace.
+            Across the years 2017 to 2020, the company have failed to fulfill the carbon emission regulations in China and US.
+            Additionally, it only plans to transform all vehicles to net-zero carbon emissions for the markets of China, the EU and US.
+            Other larger markets such as South Korea and India are not included in the carbon neutral plan.
+            Due to having different standards in working towards reducing carbon emissions, it is ineffective in its effort in curbing climate change.
+        </p>
+        <a href="https://www.greenpeace.org/eastasia/blog/6889/the-worlds-top-carmakers-are-holding-us-back-on-climate-action-by-violating-co2-regulations-in-certain-markets/">Link to source</a>
+    </div>
+    <br />
+
+    <div id="tesla">
+        <h3>1. Tesla</h3>
+        <p style="width:60%">
+            Tesla is arguably the most environmentally-conscious carmaker that is operating today. The company is founded
+            on the principle that vehicles that run on sustainable energy can be just as fun and amazing as the best 
+            petrol-powered cars in the market. Sustainability is at the heart of Tesla, and this is represented by its
+            zero-emissions vehicles all the way to the net-zero targets for its Gigafactories.
+        </p>
+        <a href="https://www.tesmanian.com/blogs/tesmanian-blog/tesla-model-s-modely-environmental-impact-improvement">Link to source</a>
+    </div>
+    <br />
+
+    <div id="honda">
+        <h3>2. Honda</h3>
+        <p style="width:60%">
+            Honda was the first to create and release an engine that was compliant with the strict Clean Air Act regulations.
+            They were quick to share the technology with the rest of the industry. Honda is also proud to build its reputation 
+            around its quality vehicles and their environmental leadership. They have several projects running at many levels
+            that are both beneficial to the consumer and the natural world.
+        </p>
+        <a href="https://thenewswheel.com/why-manufacturers-are-looking-to-honda-for-environmental-leadership/">Link to source</a>
+    </div>
+    <br />
+
+    <div id="nissan">
+        <h3>3. Nissan</h3>
+        <p style="width:60%">
+            In 2019, Nissan received the ENERGY STAR Partner of the Year – Sustained Excellence Award for the 8th
+            consecutive year, for their strong commitment to reduce CO2 emissions from their vehicles and operations,
+            and for applying ENERGY STAR® guidance towards these goals. In 2017, the Carbon Disclosure Project (CDP)
+            recognized Nissan for leadership in both environmental disclosure and environmental performance with an
+            A- score in Climate Change and A score in Water.
+        </p>
+        <a href="https://www.nissanusa.com/about/green-program.html">Link to source</a>
+    </div>
+    <br />
+
+    <div id="gm">
+        <h3>4. General Motors</h3>
+        <p style="width:60%">
+            General Motors is joining governments and companies around the globe working to establish a safer, greener and better world,
+            General Motors is the 10th largest offtaker of renewable energy in the world and in 2020, the company received a 2020
+            Green Power Leadership Award from the U.S. Environmental Protection Agency. GM will be investing $27 billion in electric
+            and autonomous vehicles in the next five years – up from the $20 billion planned before the onset of the COVID-19 pandemic.
+        </p>
+        <a href="https://media.gm.com/media/us/en/gm/home.detail.html/content/Pages/news/us/en/2021/jan/0128-carbon.html">Link to source</a>
+    </div>
+    <br />
+
+    <div id="renault">
+        <h3>5. Renault</h3>
+        <p style="width:60%">
+            Renault Group was the first full-line carmaker to embrace the all-electric car. Eight years after the launch of the first ZOE,
+            with more than 390,000 electric vehicles on the road, Renault Group is making a significant contribution to reducing the emissions
+            of vehicles in use. Off the road, Renault Group has developed a pathway to decarbonize by reducing the carbon footprint of its
+            production facilities and suppliers. Renault Group’s climate project is composed of nine main actions. They will be gradually 
+            rolled out across the Group until 2030, an interim milestone toward our ambition of carbon neutrality in Europe by 2040 and worldwide by 2050.
+        </p>
+        <a href="https://www.renaultgroup.com/en/our-commitments/respect-for-the-environment/">Link to source</a>
+    </div>
+    <br />
+    <a href="#top">Go back to top</a>
+</body>
+</html>

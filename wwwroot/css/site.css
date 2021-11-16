@@ -3,7 +3,9 @@
     padding: 0;
 }
 
-
+html{
+    scroll-behavior: smooth;
+}
 
 .iframe-container iframe{
     position:relative;
