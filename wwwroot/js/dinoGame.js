@@ -11,7 +11,7 @@ function startGame() {
             myGamePiece.gravity = 0.05;
             myScore = new component("30px", "Consolas", "black", 430, 40, "text");
             myGameArea.start();
-        }, 2000);
+        }, 1000);
     } else {
         window.location.href = '/Entertainment/Index/';
     }
