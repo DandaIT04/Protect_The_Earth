@@ -109,11 +109,8 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
 
-            userScore = document.getElementById('userScore');
-            userScore.innerHTML = myScore;
-            
-
-            location.reload();
+            window.location.href = '/Entertainment/AddPointsDino/' + myScore.text;
+            //location.reload();
             window.alert("You lose! The earth is destroyed!");
             return;
         }
