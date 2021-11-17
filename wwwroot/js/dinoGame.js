@@ -11,7 +11,7 @@ function startGame() {
             myGamePiece.gravity = 0.05;
             myScore = new component("30px", "Consolas", "black", 430, 40, "text");
             myGameArea.start();
-        }, 500);
+        }, 2000);
     } else {
         window.location.href = '/Entertainment/Index/';
     }
@@ -111,6 +111,7 @@ function updateGameArea() {
 
             userScore = document.getElementById('userScore');
             userScore.innerHTML = myScore;
+            
 
             location.reload();
             window.alert("You lose! The earth is destroyed!");

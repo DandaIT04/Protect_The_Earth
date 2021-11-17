@@ -11,6 +11,13 @@
         background: #eee;
         font-size: 200%;
     }
+
+    @@media screen and (max-width: 600px) {
+        .text-center {
+            margin-left:auto;
+            margin-right:auto;
+        }
+    }
 </style>
 <html>
 <head>
@@ -25,9 +32,9 @@
     <hr />
     <br />
     <div class="row">
-        <div class="col-lg-1 col-sm-0"></div>
+        <div class="col-lg-1 col-sm"></div>
         <a href="~/Entertainment/dinoGame" class="text-center">
-            <img src="~/images/GravitEarth.png" alt="GravitEarth" width="325" height="325" class="rounded-lg gameImage" />
+            <img src="~/images/GravitEarth.png" alt="GravitEarth" width="325" height="325" class="mx-auto d-block" />
         </a>
         <br />
         <div class="col-lg-1 col-sm"></div>
@@ -47,9 +54,9 @@
     <hr />
     <br />
     <div class="row">
-        <div class="col-lg-1 col-sm-0"></div>
+        <div class="col-lg-1 col-sm"></div>
         <a href="~/Entertainment/dinoGame" class="text-center">
-            <img src="~/images/EarthJump.png" alt="EarthJump" width="325" height="325" class="rounded-lg gameImage" />
+            <img src="~/images/EarthJump.png" alt="EarthJump" width="325" height="325" class="mx-auto d-block" />
         </a>
         <br />
         <div class="col-lg-1 col-sm"></div>
