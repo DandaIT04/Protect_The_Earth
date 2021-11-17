@@ -110,7 +110,7 @@ function updateGameArea() {
         if (myGamePiece.crashWith(myObstacles[i])) {
 
             userScore = document.getElementById('userScore');
-            userScore.innerHTML = myScore;
+            userScore.value = 0;
 
             location.reload();
             window.alert("You lose! The earth is destroyed!");
