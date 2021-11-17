@@ -12,12 +12,35 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
-<body>
-    <img src="~/images/foodEnvironmentIssues.jpg" style="height:60vh; width=70vh" class="mt-3" />
-    <br />
-    <p style="font-size:8px">Image Source : <a>https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wbcsd.org%2FOverview%2FNews-Insights%2FWBCSD-insights%2FIt-is-time-to-fix-our-broken-food-systems&psig=AOvVaw0FxuzxtLb1aQD77Fhnp9LC&ust=1637188169034000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDwpbP3nfQCFQAAAAAdAAAAABAF</a></p>
+<style>
+    @@media screen and (max-width: 1090px) {
+        .theImage {
+            height: 650px;
+            width: 650px;
+        }
+    }
+    @@media screen and (max-width: 991px) {
+        .theImage {
+            height: 450px;
+            width: 450px;
+        }
+    }
+    @@media screen and (max-width: 800px) {
+        .theImage {
+            height: 325px;
+            width: 325px;
+        }
+    }
+</style>
 
-    <div>
+<body>
+    <div class="mx-auto d-block, text-center">
+        <img src="~/images/foodEnvironmentIssues.jpg" width="800" height="600" class="theImage" />
+    </div>
+    <br />
+    <p class="text-center" style="font-size:8px">Image Source : <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.wbcsd.org%2FOverview%2FNews-Insights%2FWBCSD-insights%2FIt-is-time-to-fix-our-broken-food-systems&psig=AOvVaw0FxuzxtLb1aQD77Fhnp9LC&ust=1637188169034000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDwpbP3nfQCFQAAAAAdAAAAABAF" target="_blank">Visit Source!</a></p>
+
+    <div class="text-center">
         <h2>Top 5 Food and Beverages companies that are good and bad the environment</h2><br />
         <h5>Bad</h5><hr />
         <a href="#cocaCola">1. Coca-Cola</a><br />
@@ -35,9 +58,9 @@
 
     <br />
 
-    <div id="cocaCola">
+    <div id="cocaCola" class="text-center">
         <h3>1. Coca-Cola</h3>
-        <p style="width:60%">
+        <p class="text-center">
             Coca-Cola was sued by Earth Island Institute for deceptive marketing regarding its sustainability efforts
             “despite being one of the largest contributors to plastic pollution in the world.” Coca-Cola is the world’s
             leading plastic waste producer, generating 2.9 million tons of plastic waste per year. It uses about 200,000
@@ -46,58 +69,58 @@
             has Coca-Cola failed to implement an effective recycling strategy, it has actively opposed legislation that
             would improve recycling rates.
         </p>
-        <a href="https://www.natlawreview.com/article/coca-cola-sued-deceptive-sustainability-claims">Link to source</a>
+        <a href="https://www.natlawreview.com/article/coca-cola-sued-deceptive-sustainability-claims"  target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="nestle">
+    <div id="nestle" class="text-center">
         <h3>2. Nestle</h3>
-        <p style="width:60%">
-            It is estimated that some 95,000 metric tons of mismanaged plastic waste, i.e burnt or dumped, is created by 
+        <p class="text-center">
+            It is estimated that some 95,000 metric tons of mismanaged plastic waste, i.e burnt or dumped, is created by
             Nestlé every year across these six developing nations. This is enough plastic waste to cover more than 15 football
             pitches a day. The company's biggest plastic pollution footprint is in the Philippines, where approximately 35,500
             metric tons is produced per year. This was followed by Brazil, which is Nestlé's third leading market based on sales.
         </p>
-        <a href="https://www.statista.com/statistics/1127462/annual-plastic-waste-volume-nestle/">Link to source</a>
+        <a href="https://www.statista.com/statistics/1127462/annual-plastic-waste-volume-nestle/"  target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="pepsi">
+    <div id="pepsi" class="text-center">
         <h3>3. PepsiCo</h3>
-        <p style="width:60%">
+        <p class="text-center">
             PepsiCo claims a commitment to end deforestation, yet its suppliers were implicated in the destruction of Southeast
             Asia’s most important rainforests in the Leuser Ecosystem —the only place on earth where Sumatran elephants, orangutans,
             tigers and rhinos coexist in the wild. PepsiCo also proclaimed that it received top scores in WWF’s scorecard and was
-            recognised for ‘leading the way’. Yet WWF described the company as ‘not yet in the starting blocks’ and gave it a disgraceful 
+            recognised for ‘leading the way’. Yet WWF described the company as ‘not yet in the starting blocks’ and gave it a disgraceful
             score of 2.8 out of 10 for efforts to go beyond corporate commitments and reform its supply chain. This ranking is not the glowing
             endorsement that PepsiCo is making it out to be in its PR campaigns that aim to mislead consumers across the globe.
         </p>
-        <a href="https://www.ran.org/the-understory/pepsico_greenwash_all_talk_no_action/">Link to source</a>
+        <a href="https://www.ran.org/the-understory/pepsico_greenwash_all_talk_no_action/" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="unilever">
+    <div id="unilever" class="text-center">
         <h3>4. Unilever</h3>
-        <p style="width:60%">
-            It is estimated that some 70,000 metric tons of mismanaged plastic waste, i.e burnt or dumped, 
-            is created by Unilever every year across these six developing nations. This is enough plastic 
+        <p class="text-center">
+            It is estimated that some 70,000 metric tons of mismanaged plastic waste, i.e burnt or dumped,
+            is created by Unilever every year across these six developing nations. This is enough plastic
             waste to cover more than 11 football pitches a day. The company's biggest plastic pollution
             footprint is in India, where approximately 32,500 metric tons is produced per year.
         </p>
-        <a href="https://www.statista.com/statistics/1127470/annual-plastic-waste-volume-unilever/">Link to source</a>
+        <a href="https://www.statista.com/statistics/1127470/annual-plastic-waste-volume-unilever/" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="mars">
+    <div id="mars" class="text-center">
         <h3>5. Mars Corporation</h3>
-        <p style="width:60%">
+        <p class="text-center">
             Although Mars have attempted to reduce their carbon footprint and gave solid results through their footprint
             decrease by a quarter since 2016 as well as their aim to eliminate their greenhouse gas emissions by 2040,
             Mars is failing to acknowledge the ways in which their products and practices will continue to impact the environment.
             Whilst they are most famous for their production of confectionary, Mars also own Whiska and Pedigree pet food. Both candy
             and pet food rely heavily on animal agriculture and many of Mars’ products contain palm oil. Both animal agriculture and
             palm oil are having a devastating effect on the environment. Animal agriculture is one of the leading causes of greenhouse
-            gas emissions, and the use of land and water in order to produce animal products is unsustainable. Combined with the 
+            gas emissions, and the use of land and water in order to produce animal products is unsustainable. Combined with the
             destruction of rainforests that palm oil causes, the continued use of these products is contributing to global warming.
 
         </p>
@@ -105,66 +128,68 @@
     </div>
     <br />
 
-    <div id="danone">
+    <div id="danone" class="text-center">
         <h3>1. Danone</h3>
-        <p style="width:60%">
+        <p class="text-center">
             Danone obtained a ‘triple A’ score by nonprofit organization CDP in recognition of its leading environmental efforts, namely in tackling climate change,
             fighting deforestation and protecting water cycles. This prestigious distinction acknowledges Danone’s unique commitments to being a game-changer and to
             fostering positive environmental solutions, in line with its ‘One Planet. One Health’ vision.
         </p>
-        <a href="https://www.globenewswire.com/news-release/2020/02/03/1978531/0/en/Danone-Danone-recognized-as-a-global-environmental-leader-becoming-one-of-the-6-companies-with-AAA-score-by-CDP-worldwide.html">Link to source</a>
+        <a href="https://www.globenewswire.com/news-release/2020/02/03/1978531/0/en/Danone-Danone-recognized-as-a-global-environmental-leader-becoming-one-of-the-6-companies-with-AAA-score-by-CDP-worldwide.html" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="nature">
+    <div id="nature" class="text-center">
         <h3>2. Nature's' Path Food</h3>
-        <p style="width:60%">
-            Nature’s Path takes waste reduction seriously and as of 2017, attained Zero Waste certifications for all three of its manufacturing plants. This means they 
+        <p class="text-center">
+            Nature’s Path takes waste reduction seriously and as of 2017, attained Zero Waste certifications for all three of its manufacturing plants. This means they
             each divert more than 90 percent of waste from the landfill – amounting to a total of 2,875 short tons each year. Not only has this initiative made environmental
             sense, but it also makes business sense, with more than $344,000 in annual savings for the company. Nature’s Path continues to complete waste stream audits
             biennially at all its locations, which is one of the key actions that helped reach its zero-waste milestone. Following the audits, location-specific key
             performance indicators are set, as well as action plans around target waste streams identified in the audits.
         </p>
-        <a href="https://climatesmartbusiness.com/case-studies/nature-s-path-foods-integrates-sustainability-into-corporate-culture">Link to source</a>
+        <a href="https://climatesmartbusiness.com/case-studies/nature-s-path-foods-integrates-sustainability-into-corporate-culture" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="kellogg">
+    <div id="kellogg" class="text-center">
         <h3>3. Kellogg's'</h3>
-        <p style="width:60%">
+        <p class="text-center">
             For the third year in a row, Kellogg Company has been named to the prestigious Dow Jones Sustainability World and North America indices (DJSI) of companies
             recognized for their sustainable business practices. Kellogg ranked #3 among U.S.-based food & agriculture companies and was named among the top 10 most
-            sustainable food & agriculture companies globally. The company has managed to reduced its greenhouse gas emissions in its plants by more than 28% - exceeding 
+            sustainable food & agriculture companies globally. The company has managed to reduced its greenhouse gas emissions in its plants by more than 28% - exceeding
             its 2020 goal one year ahead of schedule1 - 28% of electricity used in Kellogg facilities already come from renewable sources.
         </p>
-        <a href="https://www.prnewswire.com/news-releases/kellogg-company-among-most-sustainable-food--agriculture-companies-named-in-prestigious-dow-jones-sustainability-indices-301174030.html">Link to source</a>
+        <a href="https://www.prnewswire.com/news-releases/kellogg-company-among-most-sustainable-food--agriculture-companies-named-in-prestigious-dow-jones-sustainability-indices-301174030.html" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="fn">
+    <div id="fn" class="text-center">
         <h3>4. Fraser & Neave (F&N)</h3>
-        <p style="width:60%">
+        <p class="text-center">
             Fraser & Neave is committing RM30mil over the next two years for energy conservation initiatives, which will result in a minimum 20% of the group’s total energy
             requirement sourced from solar by 2022. As part of the investment, F&N will install 10MW of total solar energy capacity at its plants in Shah Alam, Pulau Indah and Bentong.
             The 10MW solar roof project is expected to be completed next year and will generate clean energy equivalent to the electricity consumption of 3,700 households in the country.
             The project is done in order to minimise the environmental impact of the group's operations. There will also be an installation of an automated storage and retrieval system
             at the warehouses which will eradicate the use of forklits, cutting their fuel usage and greenhouse gas emissions.
         </p>
-        <a href="https://www.thestar.com.my/business/business-news/2020/11/05/fn-going-big-on-energy-conservation">Link to source</a>
+        <a href="https://www.thestar.com.my/business/business-news/2020/11/05/fn-going-big-on-energy-conservation" target="_blank">Link to source</a>
     </div>
     <br />
 
-    <div id="campbell">
+    <div id="campbell" class="text-center">
         <h3>5. Campbell</h3>
-        <p style="width:60%">
+        <p class="text-center">
             Campbell Soup Company was named to the 15th annual Global 100 Most Sustainable Corporations in the World list by Corporate Knights, a media, research and financial products company.
             The company has received high marks in the “clean revenue” metric, which counts for 50 percent of each company’s score and measures the percentage of revenues earned from products
             or services that have environmental, or well-defined social benefits. Other than that, Campbell has successfully reduced waste sent to landfills and is now focused on reducing food
             waste in its operations with a goal to cut food waste in half by 2030, in line with the United Nations Sustainable Development Goal 12.3.
         </p>
-        <a href="https://www.businesswire.com/news/home/20190122005312/en/Campbell-Named-One-of-the-World%E2%80%99s-Most-Sustainable-Corporations-by-Corporate-Knights">Link to source</a>
+        <a href="https://www.businesswire.com/news/home/20190122005312/en/Campbell-Named-One-of-the-World%E2%80%99s-Most-Sustainable-Corporations-by-Corporate-Knights" target="_blank">Link to source</a>
     </div>
     <br />
-    <a href="#top">Go back to top</a>
+    <div class="text-center">
+        <a href="#top" class="text-center">Go back to top</a>
+    </div>
 </body>
 </html>
