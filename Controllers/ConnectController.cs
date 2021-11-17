@@ -24,7 +24,7 @@ namespace PFD_SaveTheEnvironment.Controllers
         {
             if ((HttpContext.Session.GetString("Role") == null) || (HttpContext.Session.GetString("Role") != "User"))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Organizations", "Read");
             }
 
             TempData["actualUserID"] = HttpContext.Session.GetString("LoginID");
@@ -45,7 +45,7 @@ namespace PFD_SaveTheEnvironment.Controllers
             if ((HttpContext.Session.GetString("Role") == null) ||
             (HttpContext.Session.GetString("Role") != "User"))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Organizations", "Read");
             }
 
             int selectEvent = selectedEvent.EventID;
