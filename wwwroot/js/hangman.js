@@ -72,6 +72,11 @@ function updateHangmanPicture() {
 function checkIfGameWon() {
     if (wordStatus === answer) {
         document.getElementById('keyboard').innerHTML = 'You Won!!!';
+        var x = document.getElementById("resetBtn");
+        x.style.display = "none";
+        setTimeout(() => {
+            window.location.href = '/Entertainment/AddPointsHang/';
+        }, 1000);
     }
 }
 

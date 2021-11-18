@@ -52,5 +52,13 @@ namespace PFD_SaveTheEnvironment.Controllers
             }
             return RedirectToAction("FlappyEarth");
         }
+        public ActionResult AddPointsHang()
+        {
+            if (HttpContext.Session.GetString("LoginID") != null && HttpContext.Session.GetString("Role") == "User")
+            {
+                userContext.AddGamePoint(HttpContext.Session.GetString("LoginID"), 25);
+            }
+            return RedirectToAction("HangMan");
+        }
     }
 }
