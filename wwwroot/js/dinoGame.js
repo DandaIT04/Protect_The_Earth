@@ -125,7 +125,7 @@ function updateGameArea() {
         minGap = 170;
         maxGap = 180;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-        result = Math.floor((Math.random() * 3) + 1);
+        result = Math.floor((Math.random() * 4) + 1);
         if (result == 1) {
             // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
             myObstacles.push(new component(70, 80, "https://localhost:44302/images/nestle.png", x, 330, "image"));
@@ -145,6 +145,13 @@ function updateGameArea() {
             myObstacles.push(new component(70, 80, "https://localhost:44302/images/pepsi.png", x, 330, "image"));
             // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
             myObstacles.push(new component(70, x - 80 - gap, "https://localhost:44302/images/pepsi.png", x, height + gap, "image"));
+        }
+
+        else if (result == 4) {
+            // myObstacles.push(new component(10, height, "https://localhost:44302/images/earth-globe.png", x, 0, "image"));
+            myObstacles.push(new component(70, 80, "https://localhost:44302/images/VistraEnergies_LogoSelf_Made.png", x, 330, "image"));
+            // myObstacles.push(new component(10, x - height - gap, "https://localhost:44302/images/earth-globe.png", x, height + gap, "image"));
+            myObstacles.push(new component(70, x - 80 - gap, "https://localhost:44302/images/VistraEnergies_LogoSelf_Made.png", x, height + gap, "image"));
         }
     }
     for (i = 0; i < myObstacles.length; i += 1) {
