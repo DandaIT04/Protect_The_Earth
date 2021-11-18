@@ -1,37 +1,60 @@
-﻿
+﻿//Source: https://www.youtube.com/watch?v=dgvyE1sJS3Y&ab_channel=SimonSuh
+
+
 //Creating a list of all the available words to guess
-var car_companies = [
-    ["volkswagen","bmw","toyota","ford","hyundai","kia"],
-    ["tesla","honda","nissan","generalmotors","renault"]
+var different_companies = [
+    [
+        ["volkswagen","bmw","toyota","ford","hyundai","kia"],
+        ["tesla", "honda", "nissan", "generalmotors", "renault"]
+    ],
+    [
+        ["shein", "victoria'ssecret", "mango", "h&m", "zara"],
+        ["oliveankara","haikini","etrican","sui","sourcecollection"]
+    ],
+    [
+        ["coca-cola", "nestle", "pepsico", "unilever", "marscorporation"],
+        ["danone","nature'spathfood","kellogg's","fraser&neave","campbell"]
+    ]
 ];
 
 //Setting the different variables
-let answer = '';
+var answer = '';
 let maxWrong = 6;
 let mistakes = 0;
 let guessed = [];
 let wordStatus = null;
 
-//Get a random company from the available company
-function randomCompany() {
-    company = car_companies[Math.floor(Math.random() * car_companies.length)];
-}
-
 //Get a random word from the list of words 
 function randomWord() {
-    company = Math.floor(Math.random() * car_companies.length);
+    var companyType = '';
+    //Company Good or Bad
+    var companyGB = 0;
+    var companyGBString = '';
+    company = Math.floor(Math.random() * different_companies.length);
+    companyGB = Math.floor()
     if (company == 1) {
-        document.getElementById("typeComp").innerHTML = "Guess the Car Company (Good for the environment)";
+        companyType = 'Fashion';
+    }
+    else if (company == 2) {
+        companyType = 'Food & Beverage';
     }
     else {
-        document.getElementById("typeComp").innerHTML = "Guess the Car Company (Bad for the environment)";
+        companyType = 'Car'
     }
-    answer = car_companies[company][Math.floor(Math.random() * car_companies[company].length)];
+    companyGB = Math.floor(Math.random() * different_companies[company].length);
+    if (companyGB == 1) {
+        companyGBString = 'Good';
+    }
+    else {
+        companyGBString = 'bad';
+    }
+    answer = different_companies[company][companyGB][Math.floor(Math.random() * different_companies[company][companyGB].length)];
+    document.getElementById("typeComp").innerHTML = "Guess the " + companyType + " Company(" + companyGBString + " for the environment)";
 }
 
 //Buttons for the user to guess the words
 function generateButtons() {
-    let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
+    let buttonsHTML = "abcdefghijklmnopqrstuvwxyz&-'".split('').map(letter =>
         `
       <button
         class="btn btn-lg btn-primary m-2"
