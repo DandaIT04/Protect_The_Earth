@@ -25,7 +25,6 @@ namespace PFD_SaveTheEnvironment.Models
         [Required(ErrorMessage = "Email Address Required!")]
         [Display(Name = "Email Address")]
         [EmailAddress]
-        [DataType(DataType.EmailAddress)]
         [ValidateUserExists]
         [StringLength(50, ErrorMessage = "Email length cannot be more than 50 characters!")]
         public string EmailAddr { get; set; }
