@@ -77,5 +77,50 @@ namespace PFD_SaveTheEnvironment.Controllers
             Users user = userContext.GetDetails(userID);
             return View(user);
         }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            if ((HttpContext.Session.GetString("Role") == null) ||
+            (HttpContext.Session.GetString("Role") != "User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            if (HttpContext.Session.GetString("LoginID") == null)
+            { //Query string parameter not provided
+              //Return to listing page, not allowed to edit
+                return RedirectToAction("Details");
+            }
+
+            Users user = userContext.GetDetails(Convert.ToInt32(HttpContext.Session.GetString("LoginID")));
+            ViewData["SalutationList"] = GetSalutations();
+
+            //If the user contains no details then redirect to Index
+            if (user == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Users user)
+        {
+            ViewData["SalutationList"] = GetSalutations();
+            if (ModelState.IsValid)
+            {
+                user.UserID = userContext.Update(user);
+                TempData["Success"] = "Edit Successful!";
+                return RedirectToAction("Details");
+            }
+            else
+            {
+                TempData["Message"] = "";
+                return View(user);
+            }
+
+        }
     }
 }

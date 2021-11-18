@@ -232,5 +232,28 @@ namespace PFD_SaveTheEnvironment.DAL
 
             return Convert.ToInt32(userID);
         }
+
+        public int Update(Users user)
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"UPDATE Users SET UserName = @name,
+                                Salutation = @sal
+                                WHERE UserID = @userID";
+
+            //Define the parameters used in SQL statement, value for each parameter
+            //is retrieved from respective class's property.
+            cmd.Parameters.AddWithValue("@name", user.UserName);
+            cmd.Parameters.AddWithValue("@sal", user.Salutation);
+            cmd.Parameters.AddWithValue("@userID", user.UserID);
+
+            //Open a database connection
+            conn.Open();
+            //ExecuteNonQuery is used for UPDATE and DELETE
+            int count = cmd.ExecuteNonQuery();
+            //Close the database connection
+            conn.Close();
+
+            return count;
+        }
     }
 }
