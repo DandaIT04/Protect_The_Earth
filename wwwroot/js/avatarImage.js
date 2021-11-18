@@ -8,6 +8,6 @@
     xmlHttp.send(null);
 }
 
-var url = "https://avatars.abstractapi.com/v1/?api_key=1cd41182df6145838077a068b9036f92&name=Claire Florentz&background_color=00adef&image_size=165"
+var url = "https://avatars.abstractapi.com/v1/?api_key=1cd41182df6145838077a068b9036f92&name={name}&background_color=00adef&image_size=165"
 
 httpGetAsync(url)
