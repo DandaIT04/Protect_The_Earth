@@ -14,7 +14,11 @@ var different_companies = [
     [
         ["coca-cola", "nestle", "pepsico", "unilever", "marscorporation"],
         ["danone","naturespathfood","kelloggs","fraser&neave","campbell"]
-    ]
+	]
+	//[
+	//	["coal", "petroleum", "naturalgas", "biofuel"],
+	//	["nuclear","solar","wind","geothermal","hydroelectric"]
+	//]
 ];
 
 //Setting the different variables
@@ -37,9 +41,12 @@ function randomWord() {
     }
     else if (company == 2) {
         companyType = 'Food & Beverage';
-    }
+	}
+	//else if (company == 3) {
+	//	companyType = 'Energy';
+ //   }
     else {
-        companyType = 'Car'
+		companyType = 'Car';
     }
     companyGB = Math.floor(Math.random() * different_companies[company].length);
     if (companyGB == 1) {
