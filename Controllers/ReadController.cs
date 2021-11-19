@@ -22,6 +22,11 @@ namespace PFD_SaveTheEnvironment.Controllers
             return View();
         }
 
+        public IActionResult Energy()
+        {
+            return View();
+        }
+
         public IActionResult Electronics()
         {
             return View();
