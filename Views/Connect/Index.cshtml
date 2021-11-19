@@ -22,15 +22,15 @@
     <h5 class="text-center"><pre><u style="color:red;">@TempData["EventCollision"]</u></pre></h5>
     @if (Model.eventList.Count > 0)
     {
-        @*<div class="row float-right">
+        <div class="row float-right">
                 <p><a asp-action="CreateEventView" class="btn btn-primary text-white rounded-pill float-right">Create Event</a></p>
                 <p> </p>
                 <p><a asp-action="CancelEventView" class="btn btn-danger text-white rounded-pill float-right">Cancel Event</a></p>
+            </div>
+        @*<div class="btn-group float-lg-right eventButtons" role="group">
+                <button type="button" onclick="document.location='Connect/CreateEventView'" class="btn btn-success">Create</button>
+                <button type="button" onclick="document.location='Connect/CancelEventView'" class="btn btn-danger">Cancel</button>
             </div>*@
-        <div class="btn-group float-lg-right eventButtons" role="group">
-            <button type="button" onclick="document.location='CreateEventView'" class="btn btn-success">Create</button>
-            <button type="button" onclick="document.location='CancelEventView'" class="btn btn-danger">Cancel</button>
-        </div>
         <br />
         <h5>Available Events</h5>
         <br />
@@ -264,4 +264,4 @@
 
 </body>
 
-</html>
+            </html>
