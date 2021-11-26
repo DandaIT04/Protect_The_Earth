@@ -14,11 +14,11 @@ var different_companies = [
     [
         ["coca-cola", "nestle", "pepsico", "unilever", "marscorporation"],
         ["danone","naturespathfood","kelloggs","fraser&neave","campbell"]
+	],
+	[
+		["coal", "petroleum", "naturalgas", "biofuel"],
+		["nuclear","solar","wind","geothermal","hydroelectric"]
 	]
-	//[
-	//	["coal", "petroleum", "naturalgas", "biofuel"],
-	//	["nuclear","solar","wind","geothermal","hydroelectric"]
-	//]
 ];
 
 //Setting the different variables
@@ -34,7 +34,7 @@ function randomWord() {
     //Company Good or Bad
     var companyGB = 0;
     var companyGBString = '';
-    company = Math.floor(Math.random() * different_companies.length);
+    company = Math.floor(Math.random() * (different_companies.length+1));
     companyGB = Math.floor()
     if (company == 1) {
         companyType = 'Fashion';
@@ -42,9 +42,9 @@ function randomWord() {
     else if (company == 2) {
         companyType = 'Food & Beverage';
 	}
-	//else if (company == 3) {
-	//	companyType = 'Energy';
- //   }
+	else if (company == 3) {
+		companyType = 'Energy';
+    }
     else {
 		companyType = 'Car';
     }
